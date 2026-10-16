@@ -1,0 +1,4926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRR Travels & Logistics | Corporate Mobility & Global Supply Chain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0b2545;
+      --secondary: #134074;
+      --accent: #f59e0b;
+      --accent-orange: #ea580c;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --green-tag: #059669;
+      --danger: #dc2626;
+      --warning: #d97706;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      background: #06182c;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .top-bar a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .nav-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .brand-logo img.logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name span {
+      color: var(--accent-orange);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent-orange);
+    }
+
+    .mobile-header-btns {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #0b2545;
+    }
+
+    .btn-accent:hover {
+      background: #d97706;
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-danger-outline {
+      background: transparent;
+      border: 1.5px solid var(--danger);
+      color: var(--danger);
+    }
+
+    .btn-danger-outline:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-sm {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .status-active {
+      background: #dcfce7;
+      color: #166534;
+      border-color: #86efac;
+    }
+
+    .status-inactive {
+      background: #fee2e2;
+      color: #991b1b;
+      border-color: #fca5a5;
+    }
+
+    .expiry-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin: 0.15rem 0;
+      white-space: nowrap;
+    }
+
+    .exp-valid {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .exp-soon {
+      background: #fffbeb;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+
+    .exp-expired {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.3rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .date-filter-box {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 0.8rem 0;
+    }
+
+    .date-indicator-badge {
+      background: white;
+      border: 1.5px solid var(--accent);
+      color: var(--primary);
+      font-weight: 800;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    }
+
+    .date-action-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .date-action-group input[type="date"] {
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 0.82rem;
+      background: white;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .table-control-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 0.6rem 0 0.5rem;
+      background: #f8fafc;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .search-input-wrap input {
+      border: none;
+      outline: none;
+      font-size: 0.85rem;
+      font-family: inherit;
+      width: 200px;
+      color: var(--text-dark);
+    }
+
+    .page-size-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .page-size-selector select {
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 0.85rem;
+      background: white;
+      cursor: pointer;
+    }
+
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .pagination-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .page-nav-btn {
+      padding: 0.35rem 0.75rem;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      background: white;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .page-nav-btn:hover:not(:disabled) {
+      background: var(--bg-light);
+      border-color: var(--primary);
+    }
+
+    .page-nav-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .page-nav-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .tracking-summary-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+
+    .tracking-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .tracking-card h5 {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .tracking-card .val {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(11, 37, 69, 0.78);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    #changePasswordModal {
+      z-index: 3000;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 14px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.2rem;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+      position: relative;
+      animation: modalSlide 0.25s ease-out;
+      margin: auto;
+    }
+
+    .modal-box-large {
+      max-width: 1200px;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlide {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-header h3 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .modal-header p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .role-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .role-card {
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 0.4rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .role-card:hover {
+      border-color: var(--accent);
+      background: #fffbeb;
+    }
+
+    .role-card.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .role-card span {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .role-card strong {
+      font-size: 0.78rem;
+      display: block;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .form-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .admin-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .tab-btn-group {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-light);
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+
+    .custom-table th, .custom-table td {
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+    }
+
+    .custom-table th {
+      background: #f1f5f9;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .custom-table tr:hover {
+      background: #f8fafc;
+    }
+
+    .login-feedback {
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      text-align: center;
+      display: none;
+    }
+
+    .login-feedback.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      display: block;
+    }
+
+    .login-feedback.error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+      display: block;
+    }
+
+    .forgot-link {
+      font-size: 0.8rem;
+      color: var(--accent-orange);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 0.35rem;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      padding: 6.5rem 1.5rem;
+      text-align: center;
+      background: #0b2545;
+    }
+
+    .hero-slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: heroFadeSlide 18s infinite ease-in-out;
+    }
+
+    .slide-1 {
+      background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1600&q=80');
+      animation-delay: 0s;
+    }
+
+    .slide-2 {
+      background-image: url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1600&q=80');
+      animation-delay: 6s;
+    }
+
+    .slide-3 {
+      background-image: url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1600&q=80');
+      animation-delay: 12s;
+    }
+
+    @keyframes heroFadeSlide {
+      0% { opacity: 0; transform: scale(1); }
+      10% { opacity: 1; }
+      33% { opacity: 1; }
+      43% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 37, 69, 0.88), rgba(19, 64, 116, 0.85));
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--accent);
+      color: #fde68a;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .metrics-ribbon {
+      background: white;
+      max-width: 1140px;
+      margin: -2.5rem auto 0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      padding: 2rem;
+      text-align: center;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .metric-box h3 {
+      font-size: 2.3rem;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-box p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-head h2 {
+      font-size: 2.3rem;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .leadership-card {
+      background: white;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
+
+    .leader-photo {
+      text-align: center;
+    }
+
+    .leader-avatar-wrap {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem;
+      overflow: hidden;
+      border: 4px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      background-color: #0b2545;
+    }
+
+    .leader-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .leader-quote {
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .fleet-inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .fleet-count-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .fleet-count-card .number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .fleet-count-card .model {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .fleet-count-card .category {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .fleet-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .fleet-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fleet-img-container {
+      width: 100%;
+      height: 240px;
+      background-color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .fleet-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .fleet-card:hover .fleet-img-container img {
+      transform: scale(1.05);
+    }
+
+    .fleet-card-info {
+      padding: 1.8rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fleet-card-info h3 {
+      color: var(--primary);
+      margin: 0.6rem 0 0.4rem;
+      font-size: 1.3rem;
+    }
+
+    .fleet-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      border-left: 5px solid var(--accent-orange);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .value-card h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .client-chip {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      font-size: 0.95rem;
+    }
+
+    .client-chip span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 0.2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: white;
+      border-radius: 12px;
+      padding: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    .contact-info-list div {
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-info-list strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-info-list p, .contact-info-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 0.35rem;
+      color: var(--text-dark);
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .contact-success-box {
+      display: none;
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.2rem;
+      color: #065f46;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      animation: modalSlide 0.3s ease-out;
+    }
+
+    .contact-success-box strong {
+      display: block;
+      color: #047857;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    footer {
+      background: #06182c;
+      color: #94a3b8;
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.8fr 1.3fr 1.5fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-grid h4 {
+      color: white;
+      margin-bottom: 1.1rem;
+      font-size: 1.05rem;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-grid a {
+      color: #94a3b8;
+      text-decoration: none;
+      display: block;
+      line-height: 2;
+    }
+
+    .footer-grid a:hover {
+      color: var(--accent);
+    }
+
+    .footer-email-link {
+      white-space: nowrap !important;
+      word-break: normal !important;
+      display: inline-block !important;
+      font-size: 0.92rem;
+    }
+
+    .map-footer-card {
+      background: #0a2038;
+      border: 1px solid #1e3a5f;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    .map-svg-wrap {
+      width: 100%;
+      height: 180px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #06182c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .city-badges-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.85rem;
+    }
+
+    .city-badge {
+      background: #112d4e;
+      color: #cbd5e1;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #1e4976;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .city-badge.hq {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(245, 158, 11, 0.1);
+    }
+
+    .city-badge span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-orange);
+      display: inline-block;
+    }
+
+    .city-badge.hq span.dot {
+      background: var(--accent);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #1e293b;
+      padding-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 850px) {
+      .hero h1 { font-size: 2.2rem; }
+      .leadership-card { grid-template-columns: 1fr; text-align: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-grid-2, .form-grid-3, .form-grid-4 { grid-template-columns: 1fr; }
+      .role-grid-4 { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+      .mobile-header-btns { display: flex; }
+      .footer-email-link { font-size: 0.82rem; }
+      .search-input-wrap input { width: 100%; }
+      .table-control-header { flex-direction: column; align-items: stretch; }
+      .date-filter-box { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Ribbon -->
+  <div class="top-bar">
+    <div>
+      <span>📍 Headquarters: Hyderabad, Telangana | Serving Across India</span>
+    </div>
+    <div>
+      <span>📞 +91 63017 50653</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-wrap">
+      <a href="#" class="brand-logo">
+        <img src="PRR Travels_Logo.jpeg" alt="PRR Travels & Logistics Logo" class="logo-img" />
+        <div class="brand-name">PRR <span>TRAVELS & LOGISTICS</span></div>
+      </a>
+      <nav>
+        <a href="#about">About Us</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#fleet">Our Fleet</a>
+        <a href="#partners">MNC Partners</a>
+        <a href="#contact" class="btn btn-accent" onclick="scrollToPartnerSection(event)">Partner With Us</a>
+        <button type="button" class="btn btn-outline" onclick="openCentralLogin()">🔑 Login</button>
+      </nav>
+
+      <div class="mobile-header-btns">
+        <button type="button" class="btn btn-accent btn-sm" onclick="openCentralLogin()">🔑 Login</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-slideshow">
+      <div class="hero-slide slide-1"></div>
+      <div class="hero-slide slide-2"></div>
+      <div class="hero-slide slide-3"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="badge">Redefining Comfort and Mobility</div>
+      <h1>Your Trusted Partner for Corporate Cabs, Tours & Global Logistics</h1>
+      <p>Driving operational excellence for Tier-1 MNCs with 70+ dedicated owned vehicles, 100+ on-demand attached fleet, and eco-friendly EV transit across India.</p>
+      <a href="#contact" class="btn btn-accent" onclick="scrollToPartnerSection(event)">Request Corporate Proposal</a>
+    </div>
+  </section>
+
+  <!-- Metrics Ribbon -->
+  <div class="metrics-ribbon">
+    <div class="metric-box">
+      <h3>₹15+ CR</h3>
+      <p>Current Annual Turnover (114% Growth)</p>
+    </div>
+    <div class="metric-box">
+      <h3>70+</h3>
+      <p>Owned Corporate Fleet</p>
+    </div>
+    <div class="metric-box">
+      <h3>100+</h3>
+      <p>On-Demand Attached Fleet</p>
+    </div>
+    <div class="metric-box">
+      <h3>Pan-India</h3>
+      <p>Mobility & Supply Chain</p>
+    </div>
+  </div>
+
+  <!-- Leadership Section -->
+  <section id="leadership">
+    <div class="container">
+      <div class="leadership-card">
+        <div class="leader-photo">
+          <div class="leader-avatar-wrap">
+            <img src="Mr. Srinath Reddy_1.jpeg" alt="Mr. Srinath Reddy" />
+          </div>
+          <h3 style="color:var(--primary); font-size:1.25rem;">Mr. Srinath Reddy</h3>
+        </div>
+        <div>
+          <p class="leader-quote">"When you are inspired by some great purpose, your mind transcends limitations."</p>
+          <p style="color:var(--text-muted); font-size:1.05rem; margin-bottom: 1rem;">
+            We are a bunch of committed professionals striving for excellence. Our focus is on perking up client servicing and empowering our business for steep long-term growth through a skilled and motivated workforce.
+          </p>
+          <p style="color:var(--text-muted); font-size:0.95rem;">
+            From establishing ourselves as a core travel service provider in Hyderabad to achieving a 114% turnover surge towards ₹15 Cr, our vision is steadfast on scaling towards a ₹50 Cr+ valuation with pan-India electric mobility and tech-integrated corporate transit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleet Showcase -->
+  <section id="fleet" style="background:#f8fafc; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2>Professional Fleet Inventory</h2>
+        <p>Real-world vehicles verified for top corporate shifts, zero-emission green mobility, and executive travel.</p>
+      </div>
+
+      <div class="fleet-inventory-grid">
+        <div class="fleet-count-card">
+          <div class="number">20</div>
+          <div class="model">Swift Dzire</div>
+          <div class="category">Executive Sedan</div>
+        </div>
+        <div class="fleet-count-card">
+          <div class="number">10</div>
+          <div class="model">Kia EV Clavis</div>
+          <div class="category">Eco EV Crossover</div>
+        </div>
+        <div class="fleet-count-card">
+          <div class="number">3</div>
+          <div class="model">Innova Crysta</div>
+          <div class="category">Premium MUV</div>
+        </div>
+        <div class="fleet-count-card">
+          <div class="number">2</div>
+          <div class="model">Innova Hycross</div>
+          <div class="category">Luxury Hybrid</div>
+        </div>
+        <div class="fleet-count-card">
+          <div class="number">11</div>
+          <div class="model">Marazzo</div>
+          <div class="category">Corporate Transit</div>
+        </div>
+        <div class="fleet-count-card">
+          <div class="number">15</div>
+          <div class="model">Bolero Neo</div>
+          <div class="category">Utility Fleet</div>
+        </div>
+      </div>
+
+      <div class="fleet-gallery">
+        <div class="fleet-card">
+          <div class="fleet-img-container">
+            <img src="MG Windsor EV.avif" alt="MG Windsor EV">
+          </div>
+          <div class="fleet-card-info">
+            <span style="background:var(--green-tag); color:white; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:4px; font-weight:700; width:max-content;">ZERO EMISSION / EV</span>
+            <h3>MG Windsor EV</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">Aerolounge comfort, extended legroom, and whisper-quiet electric mobility for tech executives and green corporate fleets.</p>
+            <div class="fleet-tags">
+              <span class="tag">⚡ 100% Electric</span>
+              <span class="tag">🌱 Zero Emissions</span>
+              <span class="tag">🛋️ Aero Lounge Seats</span>
+              <span class="tag">📍 GPS Monitored</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <div class="fleet-img-container">
+            <img src="Kia Carens Clavis EV.avif" alt="Kia EV Clavis">
+          </div>
+          <div class="fleet-card-info">
+            <span style="background:var(--green-tag); color:white; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:4px; font-weight:700; width:max-content;">ECO EV CROSSOVER</span>
+            <h3>Kia EV Clavis</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">High-tech compact electric crossover dedicated to quick, comfortable, and zero-pollution urban executive commutes.</p>
+            <div class="fleet-tags">
+              <span class="tag">⚡ 10 Units in Fleet</span>
+              <span class="tag">🔋 Extended Range</span>
+              <span class="tag">🛡️ SOS Panic Button</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <div class="fleet-img-container">
+            <img src="Innova Crysta.avif" alt="Toyota Innova Crysta">
+          </div>
+          <div class="fleet-card-info">
+            <span style="background:var(--primary); color:white; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:4px; font-weight:700; width:max-content;">PREMIUM MUV</span>
+            <h3>Toyota Innova Crysta</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">Renowned comfort, robust reliability, and spacious captain seating designed for executive groups and VIP client travel.</p>
+            <div class="fleet-tags">
+              <span class="tag">👥 7-8 Seater</span>
+              <span class="tag">🛡️ Proven Durability</span>
+              <span class="tag">💼 Corporate Favorite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <div class="fleet-img-container">
+            <img src="Innova Hycross.avif" alt="Toyota Innova Hycross Hybrid">
+          </div>
+          <div class="fleet-card-info">
+            <span style="background:var(--secondary); color:white; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:4px; font-weight:700; width:max-content;">LUXURY HYBRID</span>
+            <h3>Toyota Innova Hycross</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">The undisputed gold standard in executive transit, featuring self-charging hybrid power and ultra-smooth lounge comfort.</p>
+            <div class="fleet-tags">
+              <span class="tag">⭐ Executive Class</span>
+              <span class="tag">🌱 Self-Charging Hybrid</span>
+              <span class="tag">🧳 Large Boot Space</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <div class="fleet-img-container">
+            <img src="Dezire CNG.avif" alt="Swift Dzire Executive Sedan">
+          </div>
+          <div class="fleet-card-info">
+            <span style="background:var(--secondary); color:white; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:4px; font-weight:700; width:max-content;">DAILY COMMUTES</span>
+            <h3>Swift Dzire (20 Units)</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">High-efficiency sedan ensuring 99.8% on-time shifts for routine point-to-point corporate employee commutes.</p>
+            <div class="fleet-tags">
+              <span class="tag">👥 4 Seater</span>
+              <span class="tag">❄️ AC Sedan</span>
+              <span class="tag">🕒 24/7 Shift Operations</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fleet-card">
+          <div class="fleet-img-container">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Chiller Container Logistics">
+          </div>
+          <div class="fleet-card-info">
+            <span style="background:#0284c7; color:white; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:4px; font-weight:700; width:max-content;">COLD CHAIN LOGISTICS</span>
+            <h3>Chiller Containers & Freight</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">Tata 407, Treo Zor, and temperature-controlled chiller freight safeguarding agricultural and pharmaceutical shipments.</p>
+            <div class="fleet-tags">
+              <span class="tag">❄️ Temp Controlled</span>
+              <span class="tag">📦 FMCG & Pharma Ready</span>
+              <span class="tag">🚛 Heavy Fleet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section id="about" style="background:#f1f5f9;">
+    <div class="container">
+      <div class="section-head">
+        <h2>Who We Are & Our Core Values</h2>
+        <p>Structured, connected, and professionally controlled operations managed by industry veterans.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>⏱️ Time</h3>
+          <p>Doing everything in the quickest possible manner and staying responsive to change across corporate shift deadlines.</p>
+        </div>
+        <div class="value-card">
+          <h3>🤝 Client-Centric</h3>
+          <p>The client is always right and comes first. All requests and transit requirements are addressed immediately.</p>
+        </div>
+        <div class="value-card">
+          <h3>🛡️ Integrity</h3>
+          <p>Being real, maintaining operational transparency, and upholding total compliance without internal compromise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Partners -->
+  <section id="partners">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Prestigious Corporate Partners</h2>
+        <p>Trusted by premier multinational corporations, retail powerhouses, and global institutions.</p>
+      </div>
+      <div class="clients-grid">
+        <div class="client-chip">Novartis <span>Corporate Commutes</span></div>
+        <div class="client-chip">D-Mart <span>Retail Logistics</span></div>
+        <div class="client-chip">Corteva Agri <span>Agronomy Mobility</span></div>
+        <div class="client-chip">Pioneer Seeds <span>Agri Supply Logistics</span></div>
+        <div class="client-chip">ICFAI Univ. <span>Staff Transit</span></div>
+        <div class="client-chip">Big Basket <span>Essential Delivery</span></div>
+        <div class="client-chip">Tata <span>Project Logistics</span></div>
+        <div class="client-chip">TRC Company <span>Corporate Mobility</span></div>
+        <div class="client-chip">Vylor <span>Corporate Partner</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section (Partner With Us) -->
+  <section id="contact" style="background:#edf2f7;">
+    <div class="container">
+      <div class="section-head">
+        <h2>Let's Ride Together</h2>
+        <p>Connect with PRR Travels & Logistics for a tailored fleet proposal.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info-list">
+          <div>
+            <strong>📍 Corporate Office</strong>
+            <p>Hyderabad, Telangana, India</p>
+          </div>
+          <div>
+            <strong>📞 Phone Number</strong>
+            <p><a href="tel:+916301750653">+91 63017 50653</a></p>
+          </div>
+          <div>
+            <strong>✉️ Email Inquiries</strong>
+            <p><a href="mailto:team.operations@prr-travels.com">team.operations@prr-travels.com</a></p>
+          </div>
+          <div>
+            <strong>🌐 Official Domain</strong>
+            <p>prr-travels.com</p>
+          </div>
+        </div>
+
+        <!-- Corporate RFP Form -->
+        <div>
+          <div id="contactFormSuccessMsg" class="contact-success-box">
+            <strong>✅ Thank You for Reaching Out!</strong>
+            Our corporate mobility team has received your RFP details and will connect with you within 2-4 business hours.
+          </div>
+
+          <form id="partnerWithUsForm" onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="Company" required placeholder="e.g. Novartis India">
+            </div>
+            <div class="form-group">
+              <label for="name">Contact Person</label>
+              <input type="text" id="name" name="Contact_Person" required placeholder="Your Full Name">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="Phone" required placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="form-group">
+              <label for="vehicle_preference">Vehicle Preference</label>
+              <select id="vehicle_preference" name="Vehicle_Preference">
+                <option>MG Windsor EV (Electric)</option>
+                <option>Kia EV Clavis (Electric Crossover)</option>
+                <option>Toyota Innova Crysta (Premium MUV)</option>
+                <option>Toyota Innova Hycross (Executive Hybrid)</option>
+                <option>Swift Dzire (Daily Sedan Commute)</option>
+                <option>Chiller Container / Logistics Truck</option>
+              </select>
+            </div>
+            <button type="submit" id="btnSubmitRFP" class="btn btn-accent" style="width: 100%; padding: 0.9rem; font-size: 1rem;">Send Corporate RFP</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4 style="color:var(--accent);">PRR TRAVELS & LOGISTICS</h4>
+        <p>Redefining Comfort and Mobility. Delivering world-class corporate employee mobility and temperature-controlled logistics solutions across India.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#about">About & Values</a>
+        <a href="#leadership">Leadership Vision</a>
+        <a href="#fleet">Fleet Inventory</a>
+        <a href="#partners">MNC Clients</a>
+      </div>
+      <div>
+        <h4>Contact Desk</h4>
+        <p>Hyderabad, Telangana, India</p>
+        <p>+91 63017 50653</p>
+        <p><a class="footer-email-link" href="mailto:team.operations@prr-travels.com">team.operations@prr-travels.com</a></p>
+      </div>
+
+      <div>
+        <h4>📍 Pan-India Service Hubs</h4>
+        <div class="map-footer-card">
+          <div class="map-svg-wrap">
+            <svg viewBox="0 0 420 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="420" height="220" fill="#06182c" />
+              <path d="M195,20 L210,35 L220,50 L205,75 L235,90 L260,95 L275,115 L255,130 L220,150 L205,190 L195,205 L180,185 L165,145 L145,130 L135,100 L155,80 L180,50 Z" 
+                    fill="#133966" stroke="#2563eb" stroke-width="1.6" opacity="0.8" />
+              <circle cx="200" cy="135" r="5.5" fill="#f59e0b"/>
+              <text x="212" y="139" fill="#facc15" font-size="11.5" font-weight="800">Hyderabad (HQ)</text>
+            </svg>
+          </div>
+          <div class="city-badges-wrap">
+            <span class="city-badge hq"><span class="dot"></span>Hyderabad (HQ)</span>
+            <span class="city-badge"><span class="dot"></span>Bangalore</span>
+            <span class="city-badge"><span class="dot"></span>Chennai</span>
+            <span class="city-badge"><span class="dot"></span>Mumbai</span>
+            <span class="city-badge"><span class="dot"></span>Noida (NCR)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; PRR Travels & Logistics. All Rights Reserved. Domain: prr-travels.com</p>
+    </div>
+  </footer>
+
+  <!-- Central Role-Based Login Modal -->
+  <div class="modal-backdrop" id="centralLoginModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeAllModals()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3>PRR Operational Portal</h3>
+          <p>Select your user category to access records and statements.</p>
+        </div>
+      </div>
+
+      <div id="centralLoginMsg" class="login-feedback"></div>
+
+      <div class="role-grid-4">
+        <div class="role-card active" id="roleTabAdmin" onclick="switchLoginRole('admin')">
+          <span>🛡️</span>
+          <strong>Admin</strong>
+        </div>
+        <div class="role-card" id="roleTabTrips" onclick="switchLoginRole('trips')">
+          <span>📊</span>
+          <strong>Trips Report</strong>
+        </div>
+        <div class="role-card" id="roleTabVehicle" onclick="switchLoginRole('vehicle')">
+          <span>🚗</span>
+          <strong>Vehicle</strong>
+        </div>
+        <div class="role-card" id="roleTabDriver" onclick="switchLoginRole('driver')">
+          <span>👔</span>
+          <strong>Driver</strong>
+        </div>
+      </div>
+
+      <!-- Admin Login Form -->
+      <form id="formAdminLogin" action="javascript:void(0);" autocomplete="off" onsubmit="event.preventDefault(); handleAdminAuth(); return false;">
+        <div class="form-group">
+          <label>Admin Username or Email</label>
+          <input type="text" id="loginAdminEmail" placeholder="Admin" autocomplete="off" required onkeydown="if(event.key==='Enter'){handleAdminAuth(); event.preventDefault();}">
+        </div>
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <label style="margin-bottom:0;">Admin Password</label>
+            <a class="forgot-link" onclick="openForgotPasswordModal('admin')">Forgot Password?</a>
+          </div>
+          <input type="password" id="loginAdminPassword" placeholder="Enter Operations Passcode" autocomplete="new-password" required style="margin-top:0.35rem;" onkeydown="if(event.key==='Enter'){handleAdminAuth(); event.preventDefault();}">
+        </div>
+        <button type="button" class="btn btn-accent" style="width:100%; padding:0.85rem; margin-top:0.4rem;" onclick="handleAdminAuth()">Login as Admin</button>
+      </form>
+
+      <!-- Trips Report Login Form -->
+      <form id="formTripsLogin" action="javascript:void(0);" style="display:none;" autocomplete="off" onsubmit="event.preventDefault(); handleTripsAuth(); return false;">
+        <div class="form-group">
+          <label>Trips Report Username</label>
+          <input type="text" id="loginTripsUser" placeholder="PRR TRAVELS" autocomplete="off" required onkeydown="if(event.key==='Enter'){handleTripsAuth(); event.preventDefault();}">
+        </div>
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <label style="margin-bottom:0;">Password</label>
+            <a class="forgot-link" onclick="openForgotPasswordModal('trips')">Forgot Password?</a>
+          </div>
+          <input type="password" id="loginTripsPassword" placeholder="Enter Password" autocomplete="new-password" required style="margin-top:0.35rem;" onkeydown="if(event.key==='Enter'){handleTripsAuth(); event.preventDefault();}">
+        </div>
+        <button type="button" class="btn btn-accent" style="width:100%; padding:0.85rem; margin-top:0.4rem;" onclick="handleTripsAuth()">Access Trips Reporting</button>
+      </form>
+
+      <!-- Vehicle Owner Login -->
+      <form id="formVehicleLogin" action="javascript:void(0);" style="display:none;" autocomplete="off" onsubmit="event.preventDefault(); handleVehicleAuth(); return false;">
+        <div class="form-group">
+          <label>Vehicle Plate Number</label>
+          <input type="text" id="loginVehicleNumber" placeholder="e.g. TS09EA1101" autocomplete="off" required style="text-transform:uppercase;" onkeydown="if(event.key==='Enter'){handleVehicleAuth(); event.preventDefault();}">
+        </div>
+        <div class="form-group">
+          <label>Security Password (Last 4 digits of Mobile)</label>
+          <input type="password" id="loginVehiclePin" placeholder="4 digits" maxlength="15" autocomplete="new-password" required onkeydown="if(event.key==='Enter'){handleVehicleAuth(); event.preventDefault();}">
+        </div>
+        <button type="button" class="btn btn-accent" style="width:100%; padding:0.85rem;" onclick="handleVehicleAuth()">Access Trips & Payouts</button>
+      </form>
+
+      <!-- Driver Login -->
+      <form id="formDriverLogin" action="javascript:void(0);" style="display:none;" autocomplete="off" onsubmit="event.preventDefault(); handleDriverAuth(); return false;">
+        <div class="form-group">
+          <label>Driving License (DL) No. or Driver Name</label>
+          <input type="text" id="loginDriverLicense" placeholder="e.g. TS09-2018-004491 or Ramesh Goud" autocomplete="off" required style="text-transform:uppercase;" onkeydown="if(event.key==='Enter'){handleDriverAuth(); event.preventDefault();}">
+        </div>
+        <div class="form-group">
+          <label>Security Password (Last 4 digits of Phone)</label>
+          <input type="password" id="loginDriverPin" placeholder="4 digits" maxlength="15" autocomplete="new-password" required onkeydown="if(event.key==='Enter'){handleDriverAuth(); event.preventDefault();}">
+        </div>
+        <button type="button" class="btn btn-accent" style="width:100%; padding:0.85rem;" onclick="handleDriverAuth()">View Monthly Payslips</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Forgot / Reset Password Modal -->
+  <div class="modal-backdrop" id="forgotPasswordModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeForgotPasswordModal()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3 id="forgotModalTitle">Password Recovery</h3>
+          <p>Verify authorization key to reset system access.</p>
+        </div>
+      </div>
+      <form id="formForgotPassword" action="javascript:void(0);" onsubmit="event.preventDefault(); handleResetPassword(); return false;">
+        <input type="hidden" id="resetTargetRole" value="admin">
+        <div class="form-group">
+          <label>Security Question: <strong style="color:var(--accent-orange);">Creator</strong></label>
+          <input type="text" id="resetSecretKey" placeholder="Enter your security key" required autocomplete="off" spellcheck="false">
+        </div>
+        <div class="form-group">
+          <label>Set New Password</label>
+          <input type="password" id="resetNewPass" placeholder="Enter new password" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password</label>
+          <input type="password" id="resetConfirmPass" placeholder="Repeat new password" required minlength="6">
+        </div>
+        <p id="resetFeedback" style="font-size:0.85rem; margin-bottom:1rem; display:none;"></p>
+        <button type="button" class="btn btn-accent" style="width:100%; padding:0.85rem;" onclick="handleResetPassword()">Verify & Update Password</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal-backdrop" id="changePasswordModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeChangePasswordModal()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3 id="changePassTitle">Change Passcode</h3>
+          <p>Update your operational credentials.</p>
+        </div>
+      </div>
+      <form id="formChangePassword" action="javascript:void(0);" onsubmit="event.preventDefault(); handleChangePassword(); return false;">
+        <input type="hidden" id="changePassTargetRole" value="admin">
+        <div class="form-group">
+          <label>Current Password</label>
+          <input type="password" id="currUserPass" placeholder="Current passcode" required>
+        </div>
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" id="newUserPass" placeholder="Enter new password" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password</label>
+          <input type="password" id="newUserPassConfirm" placeholder="Repeat new password" required minlength="6">
+        </div>
+        <p id="changePassFeedback" style="font-size:0.85rem; margin-bottom:1rem; display:none;"></p>
+        <button type="button" class="btn btn-accent" style="width:100%; padding:0.85rem;" onclick="handleChangePassword()">Update Passcode</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Modal -->
+  <div class="modal-backdrop" id="adminDashboardModal">
+    <div class="modal-box modal-box-large">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:0.7rem; margin-bottom:1rem;">
+        <h3 style="color:var(--primary); margin:0;">🛡️ PRR Operations Admin Console</h3>
+        <button class="btn btn-danger-outline btn-sm" onclick="logoutSession()">🚪 Logout</button>
+      </div>
+      
+      <div class="admin-nav">
+        <div class="tab-btn-group">
+          <button class="tab-btn active" id="tabBtnVehicles" onclick="switchAdminSubTab('vehicles')">🚗 Vehicles Master</button>
+          <button class="tab-btn" id="tabBtnDrivers" onclick="switchAdminSubTab('drivers')">👔 Drivers Master</button>
+          <button class="tab-btn" id="tabBtnCompliance" onclick="switchAdminSubTab('compliance')">🛡️ Compliance Vault</button>
+          <button class="tab-btn" onclick="openTripsReportConsole(true)">📊 Open Trips Console</button>
+        </div>
+        <div id="adminActionButtons" style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; margin-left:auto;">
+          <button class="btn btn-accent btn-sm" id="btnAddNewVehicle" onclick="openAddVehicleModal()">+ Add New Vehicle</button>
+          <button class="btn btn-accent btn-sm" id="btnAddNewDriver" style="display:none;" onclick="openAddDriverModal()">+ Add New Driver</button>
+          <button class="btn btn-outline btn-sm" onclick="openChangePasswordModal('admin')">🔑 Change Password</button>
+        </div>
+      </div>
+
+      <!-- VIEW 1: VEHICLES MASTER -->
+      <div id="adminVehiclesView">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+          <h4 style="color:var(--primary);">Fleet Inventory Records</h4>
+          <span style="font-size:0.85rem; color:var(--text-muted);" id="vehicleCounter">Loading...</span>
+        </div>
+
+        <div class="table-control-header">
+          <div class="filter-bar">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Status Filter:</span>
+            <button class="filter-btn active" id="vFilterAll" onclick="setVehicleFilter('all')">All Fleets</button>
+            <button class="filter-btn" id="vFilterActive" onclick="setVehicleFilter('active')">🟢 Active Fleet</button>
+            <button class="filter-btn" id="vFilterInactive" onclick="setVehicleFilter('inactive')">🔴 Inactive Fleet</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+            <div class="search-input-wrap">
+              <span>🔍</span>
+              <input type="text" id="vSearchInput" placeholder="Search plate, model, contact..." oninput="handleVehicleSearch(this.value)">
+            </div>
+            <div class="page-size-selector">
+              <label for="vPageSize">Show:</label>
+              <select id="vPageSize" onchange="changeVehiclePageSize(this.value)">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all">All</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="custom-table" id="adminVehiclesTable">
+            <thead>
+              <tr>
+                <th>Plate Number</th>
+                <th>Model</th>
+                <th>Category</th>
+                <th>Odometer (KM)</th>
+                <th>Key Document Expiries</th>
+                <th>Status</th>
+                <th>Doc File</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="pagination-bar" id="vehiclePaginationBar">
+          <div id="vehiclePaginationInfo">Showing 0 to 0 of 0 entries</div>
+          <div class="pagination-nav" id="vehiclePaginationNav"></div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: DRIVERS MASTER -->
+      <div id="adminDriversView" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+          <h4 style="color:var(--primary);">Registered Chauffeur Profiles</h4>
+          <span style="font-size:0.85rem; color:var(--text-muted);" id="driverCounter">Loading...</span>
+        </div>
+
+        <div class="table-control-header">
+          <div class="filter-bar">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Status Filter:</span>
+            <button class="filter-btn active" id="dFilterAll" onclick="setDriverFilter('all')">All Drivers</button>
+            <button class="filter-btn" id="dFilterActive" onclick="setDriverFilter('active')">🟢 Active</button>
+            <button class="filter-btn" id="dFilterInactive" onclick="setDriverFilter('inactive')">🔴 Inactive</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+            <div class="search-input-wrap">
+              <span>🔍</span>
+              <input type="text" id="dSearchInput" placeholder="Search name, DL, phone, hub, vehicle..." oninput="handleDriverSearch(this.value)">
+            </div>
+            <div class="page-size-selector">
+              <label for="dPageSize">Show:</label>
+              <select id="dPageSize" onchange="changeDriverPageSize(this.value)">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all">All</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="custom-table" id="adminDriversTable">
+            <thead>
+              <tr>
+                <th>Driver Name</th>
+                <th>Contact</th>
+                <th>Assigned Vehicle</th>
+                <th>License (DL)</th>
+                <th>Location / Hub</th>
+                <th>DL & Police Cert Expiry</th>
+                <th>Status</th>
+                <th>Documents</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="pagination-bar" id="driverPaginationBar">
+          <div id="driverPaginationInfo">Showing 0 to 0 of 0 entries</div>
+          <div class="pagination-nav" id="driverPaginationNav"></div>
+        </div>
+      </div>
+
+      <!-- VIEW 3: COMPLIANCE ALERT VAULT -->
+      <div id="adminComplianceView" style="display:none;">
+        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:1.2rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.6rem;">
+            <div>
+              <h4 style="color:#92400e; margin-bottom:0.2rem;">🛡️ Corporate Compliance & Expiry Alert Center</h4>
+              <p style="color:#78350f; font-size:0.85rem;">Monitors Registration, Pollution (PUC), Insurance, Permit, Driving License & Police Verification deadlines.</p>
+            </div>
+            <span class="tag" style="background:#fef3c7; color:#92400e; font-weight:800; font-size:0.9rem;" id="complianceLiveAlertSummary">Scanning...</span>
+          </div>
+
+          <div class="filter-bar" style="margin-top:0.8rem;">
+            <span style="font-size:0.8rem; font-weight:700; color:#78350f;">Compliance Filter:</span>
+            <button class="filter-btn active" id="cFilterAll" onclick="setComplianceFilter('all')">All Records</button>
+            <button class="filter-btn" id="cFilterExpired" onclick="setComplianceFilter('expired')">🔴 Expired Only</button>
+            <button class="filter-btn" id="cFilterSoon" onclick="setComplianceFilter('soon')">🟡 Expiring Within 30 Days</button>
+            <button class="filter-btn" id="cFilterValid" onclick="setComplianceFilter('valid')">🟢 Valid</button>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="custom-table" id="complianceAlertTable">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Identifier / Name</th>
+                <th>Document Name</th>
+                <th>Expiry Date</th>
+                <th>Time Remaining / Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trips Report Console Modal -->
+  <div class="modal-backdrop" id="tripsReportModal">
+    <div class="modal-box modal-box-large">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:0.7rem; margin-bottom:1rem; flex-wrap:wrap; gap:0.6rem;">
+        <h3 style="color:var(--primary); margin:0;">📊 PRR Trips Reporting Console</h3>
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
+          <button class="btn btn-outline btn-sm" id="btnBackToAdmin" style="display:none; font-weight:700;" onclick="returnToAdminDashboard()">⬅️ Back to Admin Console</button>
+          <button class="btn btn-danger-outline btn-sm" onclick="logoutSession()">🚪 Logout</button>
+        </div>
+      </div>
+      
+      <div class="admin-nav">
+        <div class="tab-btn-group">
+          <button class="tab-btn active" id="tabBtnTripsLog" onclick="switchTripsTab('log')">📋 Daily Trips Log</button>
+          <button class="tab-btn" id="tabBtnTripsTrack" onclick="switchTripsTab('track')">🎯 Vehicle Tracking & Earnings</button>
+          <button class="tab-btn" id="tabBtnCompanyAudit" onclick="switchTripsTab('companyAudit')">🏢 Company Master Audit</button>
+          <button class="tab-btn" onclick="openShiftSlotsManagerModal()">⏱️ Manage Time Slots</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; margin-left:auto;">
+          <button class="btn btn-accent btn-sm" onclick="exportCurrentTripsData('all')">📥 Export Trips (.csv)</button>
+          <button class="btn btn-accent btn-sm" onclick="openAddTripModal()">+ Add New Trip</button>
+          <button class="btn btn-outline btn-sm" onclick="openChangePasswordModal('trips')">🔑 Change Password</button>
+        </div>
+      </div>
+
+      <!-- VIEW A: ALL DAILY TRIPS LOG -->
+      <div id="tripsLogView">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+          <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+            <h4 style="color:var(--primary); margin-bottom:0;">Operational Fleet Daily Movement</h4>
+            <span class="date-indicator-badge" id="activeDateBannerText">📅 Viewing: Today's Trips</span>
+          </div>
+          <span style="font-size:0.85rem; color:var(--text-muted);" id="tripsCounter">Loading...</span>
+        </div>
+
+        <div class="date-filter-box">
+          <div class="date-action-group">
+            <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted);">Quick Date Filter:</span>
+            <button class="filter-btn active" id="btnDateToday" onclick="setTripDateFilter('today')">⭐ Today</button>
+            <button class="filter-btn" id="btnDateAll" onclick="setTripDateFilter('all')">🌐 All Dates</button>
+          </div>
+
+          <div class="date-action-group">
+            <label for="customDatePicker" style="font-size:0.82rem; font-weight:700; color:var(--text-muted);">Pick Specified Date:</label>
+            <input type="date" id="customDatePicker" onchange="handleCustomDatePicked(this.value)">
+          </div>
+        </div>
+
+        <div class="table-control-header">
+          <div class="filter-bar">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Shift Filter:</span>
+            <button class="filter-btn active" id="tFilterAll" onclick="setTripShiftFilter('all')">All</button>
+            <button class="filter-btn" id="tFilterLogin" onclick="setTripShiftFilter('Login')">🌅 Login</button>
+            <button class="filter-btn" id="tFilterLogout" onclick="setTripShiftFilter('LogOut')">🌃 LogOut</button>
+            <button class="filter-btn" id="tFilterNonShift" onclick="setTripShiftFilter('Non Shift')">🚗 Non Shift</button>
+            <button class="filter-btn" id="tFilterAdhoc" onclick="setTripShiftFilter('Adhoc')">⚡ Adhoc</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+            <div class="search-input-wrap">
+              <span>🔍</span>
+              <input type="text" id="tSearchInput" placeholder="Search vehicle, location, cost..." oninput="handleTripSearch(this.value)">
+            </div>
+            <div class="page-size-selector">
+              <label for="tPageSize">Show:</label>
+              <select id="tPageSize" onchange="changeTripPageSize(this.value)">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="all">All</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="custom-table" id="tripsLogTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Vehicle No</th>
+                <th>Vehicle Source</th>
+                <th>Shift Type</th>
+                <th>Shift Time</th>
+                <th>Trip Location / Route</th>
+                <th>Cost / Amount (₹)</th>
+                <th>Assigned Chauffeur</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="pagination-bar" id="tripsPaginationBar">
+          <div id="tripsPaginationInfo">Showing 0 to 0 of 0 entries</div>
+          <div class="pagination-nav" id="tripsPaginationNav"></div>
+        </div>
+      </div>
+
+      <!-- VIEW B: INDIVIDUAL VEHICLE TRACKING & EARNINGS -->
+      <div id="tripsTrackView" style="display:none;">
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:1.2rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.6rem; margin-bottom:0.8rem;">
+            <h4 style="color:var(--primary); margin-bottom:0;">Vehicle Earnings, Trip Analysis & Adhoc Expense Tracking</h4>
+            <button class="btn btn-accent btn-sm" onclick="exportCurrentTripsData('tracking')">📥 Download Vehicle Statement (.csv)</button>
+          </div>
+          
+          <div class="form-grid-4">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Select Tracked Vehicle</label>
+              <select id="trackVehicleSelect" onchange="applyVehicleTracking()"></select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Filter By Timeline</label>
+              <select id="trackTimeMode" onchange="updateTrackingDateInputs()">
+                <option value="all">Full History (All Time)</option>
+                <option value="day">Specific Day</option>
+                <option value="month">Specific Month</option>
+                <option value="year">Specific Year</option>
+                <option value="range">Custom Period (Date Range)</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;" id="trackDateInputWrap">
+              <label id="trackDateLabel">Select Date</label>
+              <input type="date" id="trackDateInput" onchange="applyVehicleTracking()">
+            </div>
+            <div class="form-group" style="margin-bottom:0; display:none;" id="trackDateEndWrap">
+              <label>To Date (End of Period)</label>
+              <input type="date" id="trackDateEndInput" onchange="applyVehicleTracking()">
+            </div>
+          </div>
+        </div>
+
+        <div class="tracking-summary-bar">
+          <div class="tracking-card">
+            <h5>Total Trips Executed</h5>
+            <div class="val" id="trackTotalTrips" style="color:var(--accent-orange);">0</div>
+          </div>
+          <div class="tracking-card">
+            <h5>Vehicle Total Earnings</h5>
+            <div class="val" id="trackTotalEarnings" style="color:var(--green-tag);">₹0</div>
+          </div>
+          <div class="tracking-card">
+            <h5>Login / LogOut Trips</h5>
+            <div class="val" id="trackShiftBreakdown" style="color:var(--primary); font-size:1.4rem;">0 / 0</div>
+          </div>
+          <div class="tracking-card">
+            <h5>Adhoc Spend (All Vehicles)</h5>
+            <div class="val" id="trackTotalAdhocSpend" style="color:var(--danger);">₹0</div>
+          </div>
+        </div>
+
+        <h4 style="color:var(--primary); margin: 1.2rem 0 0.5rem;" id="trackTableHeading">Trip & Fare Records</h4>
+        <div style="overflow-x:auto;">
+          <table class="custom-table" id="trackingResultTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Vehicle Type</th>
+                <th>Shift Category</th>
+                <th>Shift Time</th>
+                <th>Trip Location / Route</th>
+                <th>Trip Cost (₹)</th>
+                <th>Attendance</th>
+                <th>Assigned Chauffeur</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VIEW C: COMPANY MASTER FINANCIAL & TRIP AUDIT -->
+      <div id="companyAuditView" style="display:none;">
+        <div style="background:#f8fafc; border:1.5px solid var(--border); border-radius:10px; padding:1.4rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.6rem; margin-bottom:1rem;">
+            <div>
+              <h4 style="color:var(--primary); margin-bottom:0.2rem;">🏢 Company Master Financial & Trip Operations Audit</h4>
+              <p style="color:var(--text-muted); font-size:0.85rem;">Consolidated audit across Login, LogOut, Non-Shift & Adhoc trips for executive revenue and cost tracking.</p>
+            </div>
+            <button class="btn btn-accent btn-sm" onclick="exportCompanyMasterAudit()">📥 Export Company Financial Audit (.csv)</button>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Audit Time Period</label>
+              <select id="companyAuditMode" onchange="updateCompanyAuditInputs()">
+                <option value="today">Today</option>
+                <option value="day">Specific Day</option>
+                <option value="month" selected>Specific Month</option>
+                <option value="year">Specific Year</option>
+                <option value="range">Custom Date Range</option>
+                <option value="all">Full History (All Time)</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;" id="companyAuditDateWrap">
+              <label id="companyAuditDateLabel">Select Month</label>
+              <input type="month" id="companyAuditDateInput" onchange="applyCompanyMasterAudit()">
+            </div>
+            <div class="form-group" style="margin-bottom:0; display:none;" id="companyAuditEndWrap">
+              <label>To Date (End)</label>
+              <input type="date" id="companyAuditDateEndInput" onchange="applyCompanyMasterAudit()">
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+          <div class="tracking-card">
+            <h5>Total Trips Executed</h5>
+            <div class="val" id="auditTotalTrips" style="color:var(--primary);">0</div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Fleet + Adhoc Combined</span>
+          </div>
+          <div class="tracking-card">
+            <h5>Gross Revenue / Earnings</h5>
+            <div class="val" id="auditGrossRevenue" style="color:var(--green-tag);">₹0</div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Total Inflows</span>
+          </div>
+          <div class="tracking-card">
+            <h5>Adhoc Spend / Payouts</h5>
+            <div class="val" id="auditAdhocSpend" style="color:var(--danger);">₹0</div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">External Trip Expense</span>
+          </div>
+          <div class="tracking-card">
+            <h5>Net Company Value</h5>
+            <div class="val" id="auditNetValue" style="color:var(--accent-orange);">₹0</div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Gross Inflows - Adhoc Outflows</span>
+          </div>
+        </div>
+
+        <h4 style="color:var(--primary); margin-bottom:0.5rem;">Shift Category Analysis & Payments Breakdown</h4>
+        <div style="overflow-x:auto;">
+          <table class="custom-table" id="companyCategoryBreakdownTable">
+            <thead>
+              <tr>
+                <th>Shift / Trip Category</th>
+                <th>Total Trips</th>
+                <th>Share (%)</th>
+                <th>Total Payments / Revenue (₹)</th>
+                <th>Avg Payment / Trip (₹)</th>
+                <th>Operational Role</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Trip Modal -->
+  <div class="modal-backdrop" id="addTripModal">
+    <div class="modal-box" style="max-width: 600px;">
+      <button class="modal-close" onclick="closeAddTripModal()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3 id="tripModalTitle">Log Daily Vehicle Trip</h3>
+          <p>Select vehicle to auto-populate assigned driver and trip details.</p>
+        </div>
+      </div>
+
+      <form id="formSaveTrip" action="javascript:void(0);" onsubmit="event.preventDefault(); handleSaveTrip(); return false;">
+        <input type="hidden" id="tripEditIndex" value="-1">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Trip Date</label>
+            <input type="date" id="tripDate" required>
+          </div>
+          <div class="form-group">
+            <label>Shift Category</label>
+            <select id="tripShiftType" required onchange="handleShiftTypeChange()">
+              <option value="Login">Login Shift (Pick-up)</option>
+              <option value="LogOut">LogOut Shift (Drop)</option>
+              <option value="Non Shift">Non Shift</option>
+              <option value="Adhoc">Adhoc / Special Trip</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <label style="margin-bottom:0;">Vehicle Plate Number</label>
+            <label style="font-size:0.75rem; font-weight:700; color:var(--text-muted); cursor:pointer;">
+              <input type="checkbox" id="tripIsExternalVehicle" onchange="toggleVehicleSourceInput(this.checked)"> External / Out-of-Fleet Vehicle
+            </label>
+          </div>
+
+          <div id="vehicleFilterInputWrap" style="margin-bottom:0.4rem;">
+            <input type="text" id="tripVehicleDigitSearch" placeholder="⚡ Type starting or ending digits (e.g. 1101 or TS09)..." oninput="filterVehicleDropdownByDigits(this.value)" style="padding:0.45rem 0.65rem; font-size:0.82rem; border-color:var(--accent);">
+          </div>
+          
+          <select id="tripVehicleNoSelect" onchange="onTripVehicleSelected(this.value)"></select>
+          <input type="text" id="tripVehicleNoManual" placeholder="Enter External Vehicle No (e.g. AP09XX9999 or Taxi)" style="display:none; text-transform:uppercase;">
+        </div>
+
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <label style="margin-bottom:0;">Chauffeur Assigned (Auto-Linked)</label>
+            <label style="font-size:0.75rem; font-weight:700; color:var(--text-muted); cursor:pointer;">
+              <input type="checkbox" id="tripIsExternalDriver" onchange="toggleDriverSourceInput(this.checked)"> External / Substitute Chauffeur
+            </label>
+          </div>
+          <input type="text" id="tripDriverAuto" placeholder="Select a vehicle above to auto-load driver" readonly style="background:#f1f5f9; font-weight:700; color:var(--primary);">
+          <input type="text" id="tripDriverManual" placeholder="Enter Substitute Driver Name" style="display:none; margin-top:0.35rem;">
+        </div>
+
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <label style="margin-bottom:0;">Shift Timing</label>
+            <a class="forgot-link" onclick="openShiftSlotsManagerModal()">⚙️ Manage Time Slots</a>
+          </div>
+          <div style="display:flex; gap:0.5rem; margin-top:0.35rem;">
+            <select id="tripTimeDropdown" style="flex:1;" onchange="handleShiftTimeSelect(this.value)"></select>
+            <input type="text" id="tripCustomTime" placeholder="HH:MM (e.g. 07:00 or 14:15)" style="flex:1;" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Trip Cost / Fare Amount (₹)</label>
+            <input type="number" id="tripCost" placeholder="e.g. 650" required min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label>Attendance Status</label>
+            <select id="tripAttendance" required>
+              <option value="Present">Present</option>
+              <option value="Absent">Absent</option>
+              <option value="Non Shift">Non Shift</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Trip Location / Route (Manual Entry)</label>
+          <input type="text" id="tripLocation" placeholder="e.g. Gachibowli to Novartis Building 6" required>
+        </div>
+
+        <button type="button" class="btn btn-accent" id="btnSaveTrip" style="width:100%; padding:0.85rem;" onclick="handleSaveTrip()">Save Trip Record</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Time Slots Modal -->
+  <div class="modal-backdrop" id="shiftSlotsModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeShiftSlotsModal()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3>Manage Preset Shift Timings</h3>
+          <p>Add or customize shift slots for Login, LogOut, and Non-Shifts.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Shift Category to Modify</label>
+        <select id="slotCategorySelect" onchange="renderSlotsList()">
+          <option value="Login">Login Shifts</option>
+          <option value="LogOut">LogOut Shifts</option>
+          <option value="NonShift">Non Shift / Custom Times</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+        <input type="text" id="newSlotTimeInput" placeholder="Enter time (e.g. 10:30, 22:15)" style="flex:1;">
+        <button type="button" class="btn btn-accent btn-sm" onclick="addNewShiftSlot()">+ Add Slot</button>
+      </div>
+      <h5 style="color:var(--primary); font-size:0.85rem; margin-bottom:0.5rem;">Current Preset Slots:</h5>
+      <div id="slotsChipsList" style="display:flex; flex-wrap:wrap; gap:0.5rem; max-height:160px; overflow-y:auto; padding:0.5rem; background:#f8fafc; border-radius:6px; border:1px solid var(--border);"></div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Vehicle Modal -->
+  <div class="modal-backdrop" id="addVehicleModal">
+    <div class="modal-box" style="max-width: 650px;">
+      <button class="modal-close" onclick="closeAddVehicleModal()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3 id="vehicleModalTitle">Add New Vehicle</h3>
+          <p>Update plate details, odometer, compliance papers and document expiries.</p>
+        </div>
+      </div>
+      <form id="formSaveVehicle" action="javascript:void(0);" onsubmit="event.preventDefault(); handleSaveVehicle(); return false;">
+        <input type="hidden" id="vehicleEditIndex" value="-1">
+        
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Vehicle Plate Number</label>
+            <input type="text" id="vRegNo" placeholder="TS 09 EA 1234" required style="text-transform:uppercase;">
+          </div>
+          <div class="form-group">
+            <label>Current Odometer Reading (KM)</label>
+            <input type="number" id="vOdoMeter" placeholder="e.g. 42500" required min="0">
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Vehicle Model</label>
+            <select id="vModel" required>
+              <option value="">Select Model</option>
+              <option>Swift Dzire</option>
+              <option>MG Windsor EV</option>
+              <option>Kia EV Clavis</option>
+              <option>Toyota Innova Crysta</option>
+              <option>Toyota Innova Hycross</option>
+              <option>Mahindra Marazzo</option>
+              <option>Mahindra Bolero Neo</option>
+              <option>Chiller / Cold Freight Container</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Vehicle Category</label>
+            <select id="vCategory" required>
+              <option value="Owned Corporate Fleet">Owned Corporate Fleet</option>
+              <option value="Attached Fleet">Attached Fleet</option>
+              <option value="Cold Freight">Cold Freight Logistics</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Owner Contact</label>
+            <input type="tel" id="vOwnerContact" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+          <div class="form-group">
+            <label>Fuel / Powertrain</label>
+            <select id="vFuel" required>
+              <option>Electric (EV)</option>
+              <option>Strong Hybrid</option>
+              <option>CNG</option>
+              <option>Diesel</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Fleet Operational Status</label>
+          <select id="vStatus" required>
+            <option value="Active">🟢 Active Fleet</option>
+            <option value="Inactive">🔴 Inactive / On Hold</option>
+          </select>
+        </div>
+
+        <div style="background:#f1f5f9; padding:0.9rem; border-radius:8px; border:1px solid var(--border); margin-bottom:1rem;">
+          <h5 style="color:var(--primary); font-size:0.85rem; margin-bottom:0.6rem;">🛡️ Mandatory Document Expiry Dates</h5>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Registration (RC) Expiry</label>
+              <input type="date" id="vExpRegistration" required>
+            </div>
+            <div class="form-group">
+              <label>Pollution (PUC) Expiry</label>
+              <input type="date" id="vExpPollution" required>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Insurance Expiry</label>
+              <input type="date" id="vExpInsurance" required>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Commercial Permit Expiry</label>
+              <input type="date" id="vExpPermit" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Upload Vehicle Documents (RC, Insurance, Fitness PDF/Image)</label>
+          <input type="file" id="vDocFile" accept=".pdf,.png,.jpg,.jpeg">
+        </div>
+
+        <button type="button" class="btn btn-accent" id="btnSaveVehicle" style="width:100%; padding:0.85rem;" onclick="handleSaveVehicle()">Save Vehicle</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add / Edit Driver Modal -->
+  <div class="modal-backdrop" id="addDriverModal">
+    <div class="modal-box" style="max-width: 600px;">
+      <button class="modal-close" onclick="closeAddDriverModal()">&times;</button>
+      <div class="modal-header">
+        <div>
+          <h3 id="driverModalTitle">Add New Driver Profile</h3>
+          <p>Register chauffeur, assign fleet vehicle, and record renewal deadlines.</p>
+        </div>
+      </div>
+      <form id="formSaveDriver" action="javascript:void(0);" onsubmit="event.preventDefault(); handleSaveDriver(); return false;">
+        <input type="hidden" id="driverEditIndex" value="-1">
+        <div class="form-group">
+          <label>Driver Full Name</label>
+          <input type="text" id="dName" placeholder="Full Name" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Primary Phone Number</label>
+            <input type="tel" id="dPhone" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+          <div class="form-group">
+            <label>Emergency Contact</label>
+            <input type="tel" id="dEmergency" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Assign Vehicle to this Driver (Auto-links during trip entry)</label>
+          <select id="dAssignedVehicle"></select>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Driving License (DL) No.</label>
+            <input type="text" id="dLicense" placeholder="DL-XXXXXXXXXXXX" required style="text-transform:uppercase;">
+          </div>
+          <div class="form-group">
+            <label>Operating Location / Hub</label>
+            <input type="text" id="dLocation" placeholder="e.g. Hyderabad / Gachibowli" required>
+          </div>
+        </div>
+
+        <div style="background:#f1f5f9; padding:0.9rem; border-radius:8px; border:1px solid var(--border); margin-bottom:1rem;">
+          <h5 style="color:var(--primary); font-size:0.85rem; margin-bottom:0.6rem;">🛡️ Driver Document Renewal Expiries</h5>
+          <div class="form-grid-2">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Driving License (DL) Expiry Date</label>
+              <input type="date" id="dExpDL" required>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Police Verification (PVC) Expiry Date</label>
+              <input type="date" id="dExpPVC" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Driver Status</label>
+          <select id="dStatus" required>
+            <option value="Active">🟢 Active</option>
+            <option value="Inactive">🔴 Inactive / On Leave</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Upload Driver Documents (DL, KYC, Police Verification)</label>
+          <input type="file" id="dDocFile" accept=".pdf,.png,.jpg,.jpeg">
+        </div>
+        <button type="button" class="btn btn-accent" id="btnSaveDriver" style="width:100%; padding:0.85rem;" onclick="handleSaveDriver()">Save Driver Profile</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Vehicle Owner Portal Modal -->
+  <div class="modal-backdrop" id="vehiclePortalModal">
+    <div class="modal-box modal-box-large">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:0.7rem; margin-bottom:1rem;">
+        <div>
+          <h3 id="vpTitle" style="color:var(--primary); margin:0;">Vehicle Overview: TS09EA1234</h3>
+          <p id="vpSubtitle" style="color:var(--text-muted); font-size:0.85rem; margin:0;">Owner Contact: - | Category: -</p>
+        </div>
+        <button class="btn btn-danger-outline btn-sm" onclick="logoutSession()">🚪 Logout</button>
+      </div>
+
+      <div class="tracking-summary-bar">
+        <div class="tracking-card">
+          <h5>Total Trips Completed</h5>
+          <div class="val" id="vpTotalTrips" style="color:var(--primary);">0</div>
+        </div>
+        <div class="tracking-card">
+          <h5>Total Vehicle Earnings</h5>
+          <div class="val" id="vpTotalEarnings" style="color:var(--green-tag);">₹0</div>
+        </div>
+      </div>
+      <h4 style="color:var(--primary); margin-bottom:0.6rem;">Operational Shift Trips History</h4>
+      <div style="overflow-x:auto;">
+        <table class="custom-table" id="vehicleTripsTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Shift Category</th>
+              <th>Shift Time</th>
+              <th>Route / Location</th>
+              <th>Trip Fare (₹)</th>
+              <th>Attendance</th>
+              <th>Assigned Driver</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Driver Portal Modal -->
+  <div class="modal-backdrop" id="driverPortalModal">
+    <div class="modal-box modal-box-large">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:0.7rem; margin-bottom:1rem;">
+        <div>
+          <h3 id="dpTitle" style="color:var(--primary); margin:0;">Driver Profile: -</h3>
+          <p id="dpSubtitle" style="color:var(--text-muted); font-size:0.85rem; margin:0;">Contact: - | DL: - | Hub: -</p>
+        </div>
+        <button class="btn btn-danger-outline btn-sm" onclick="logoutSession()">🚪 Logout</button>
+      </div>
+      <h4 style="color:var(--primary); margin-bottom:0.6rem;">Your Assigned Shifts & Routes</h4>
+      <div style="overflow-x:auto;">
+        <table class="custom-table" id="driverPayTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Vehicle Number</th>
+              <th>Shift Category</th>
+              <th>Shift Time</th>
+              <th>Trip Route</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Engine -->
+  <script>
+    /* Smooth Navigation helper ensuring the form is ready to accept inputs */
+    function scrollToPartnerSection(event) {
+      if (event) event.preventDefault();
+      
+      const successBox = document.getElementById('contactFormSuccessMsg');
+      if (successBox) {
+        successBox.style.display = 'none';
+      }
+
+      const form = document.getElementById('partnerWithUsForm');
+      if (form) {
+        form.style.display = 'block';
+      }
+
+      const target = document.getElementById('contact');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      setTimeout(() => {
+        const companyInput = document.getElementById('company');
+        if (companyInput) companyInput.focus();
+      }, 450);
+    }
+
+    /* Handling Partner With Us / RFP Inquiry Submission */
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('partnerWithUsForm');
+      const successBox = document.getElementById('contactFormSuccessMsg');
+      const submitBtn = document.getElementById('btnSubmitRFP');
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Submitting RFP...";
+      }
+
+      setTimeout(() => {
+        if (form) {
+          form.reset();
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Corporate RFP";
+        }
+
+        // Show confirmation ONLY upon successful form submission
+        if (successBox) {
+          successBox.style.display = "block";
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 400);
+    }
+
+    function safeGetStorage(key, fallbackValue) {
+      try {
+        const item = localStorage.getItem(key);
+        if (!item || item === "undefined" || item === "null") return fallbackValue;
+        return JSON.parse(item);
+      } catch (err) {
+        return fallbackValue;
+      }
+    }
+
+    const ADMIN_EMAIL = "team.operations@prr-travels.com";
+    const MASTER_PASS = "Prrtravels$07";
+    const SECRET_KEY = "Munna";
+
+    let adminPass = localStorage.getItem('prr_admin_pass') || MASTER_PASS;
+    let tripsPass = localStorage.getItem('prr_trips_pass') || MASTER_PASS;
+    let isAdminActiveSession = false;
+
+    let shiftSlots = safeGetStorage('prr_shift_slots', {
+      Login: ["07:00", "08:00", "09:30", "12:00", "15:30", "17:30"],
+      LogOut: ["16:00", "18:30", "21:00", "00:30", "01:30", "02:30"],
+      NonShift: ["10:00", "11:30", "14:00", "20:00", "22:00", "23:30"]
+    });
+
+    function getTodayDateString() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    let vehicles = safeGetStorage('prr_vehicles', [
+      {
+        regNo: "TS09EA1101",
+        model: "Swift Dzire",
+        category: "Owned Corporate Fleet",
+        ownerContact: "+91 98480 12345",
+        fuel: "CNG",
+        status: "Active",
+        odometer: 48250,
+        expRegistration: "2028-06-30",
+        expPollution: "2026-10-15",
+        expInsurance: "2027-01-20",
+        expPermit: "2027-05-15",
+        docName: "RC_Insurance_1101.pdf",
+        docData: ""
+      },
+      {
+        regNo: "TS09EA2202",
+        model: "Toyota Innova Crysta",
+        category: "Attached Fleet",
+        ownerContact: "+91 98480 67890",
+        fuel: "Diesel",
+        status: "Active",
+        odometer: 89400,
+        expRegistration: "2027-11-20",
+        expPollution: "2026-09-20",
+        expInsurance: "2026-10-10",
+        expPermit: "2027-03-31",
+        docName: "Innova_Permits.pdf",
+        docData: ""
+      }
+    ]);
+
+    let drivers = safeGetStorage('prr_drivers', [
+      {
+        name: "Ramesh Goud",
+        phone: "+91 99887 11223",
+        assignedVehicle: "TS09EA1101",
+        emergency: "+91 99887 33445",
+        license: "TS09-2018-004491",
+        location: "Gachibowli Hub",
+        status: "Active",
+        expDL: "2029-08-14",
+        expPVC: "2026-10-05",
+        docName: "Ramesh_DL_KYC.pdf",
+        docData: "",
+        payslips: []
+      }
+    ]);
+
+    let dailyTrips = safeGetStorage('prr_daily_trips', [
+      {
+        date: getTodayDateString(),
+        vehicleNo: "TS09EA1101",
+        isExternal: false,
+        attendance: "Present",
+        shiftType: "Login",
+        shiftTime: "07:00",
+        cost: 650,
+        location: "Kondapur to Novartis Building 6",
+        driver: "Ramesh Goud"
+      },
+      {
+        date: getTodayDateString(),
+        vehicleNo: "TS09EA1101",
+        isExternal: false,
+        attendance: "Present",
+        shiftType: "LogOut",
+        shiftTime: "16:00",
+        cost: 650,
+        location: "Novartis Campus to Kondapur",
+        driver: "Ramesh Goud"
+      },
+      {
+        date: getTodayDateString(),
+        vehicleNo: "AP09TG8811",
+        isExternal: true,
+        attendance: "Present",
+        shiftType: "Adhoc",
+        shiftTime: "11:30",
+        cost: 1200,
+        location: "Airport to Corteva R&D Special Pickup",
+        driver: "V. Krishna"
+      }
+    ]);
+
+    let currentLoginRole = 'admin';
+    let currentVehicleFilter = 'all';
+    let currentDriverFilter = 'all';
+    let currentComplianceFilter = 'all';
+    let currentTripShiftFilter = 'all';
+
+    let currentTripDateFilter = 'today';
+    let customSelectedDate = '';
+
+    let vehicleSearchQuery = '';
+    let driverSearchQuery = '';
+    let tripSearchQuery = '';
+
+    let vehiclePageSize = 10, vehicleCurrentPage = 1;
+    let driverPageSize = 10, driverCurrentPage = 1;
+    let tripPageSize = 10, tripCurrentPage = 1;
+
+    function persistData() {
+      try {
+        localStorage.setItem('prr_admin_pass', adminPass);
+        localStorage.setItem('prr_trips_pass', tripsPass);
+        localStorage.setItem('prr_shift_slots', JSON.stringify(shiftSlots));
+        localStorage.setItem('prr_vehicles', JSON.stringify(vehicles));
+        localStorage.setItem('prr_drivers', JSON.stringify(drivers));
+        localStorage.setItem('prr_daily_trips', JSON.stringify(dailyTrips));
+      } catch (e) {
+        console.warn("Storage warning: Quota exceeded or private browsing active.");
+      }
+    }
+
+    function readFileAsBase64(file) {
+      return new Promise((resolve, reject) => {
+        if (!file) return resolve({ name: '', data: '' });
+        const reader = new FileReader();
+        reader.onload = () => resolve({ name: file.name, data: reader.result });
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function downloadBase64File(dataUrl, filename) {
+      if (!dataUrl) {
+        alert("ℹ️ No document file stored for this item.");
+        return;
+      }
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = filename || "document.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function setLoginFeedback(msg, type = "error") {
+      const box = document.getElementById('centralLoginMsg');
+      if (!box) return;
+      if (!msg) {
+        box.style.display = 'none';
+        box.className = 'login-feedback';
+        box.innerHTML = '';
+        return;
+      }
+      box.className = `login-feedback ${type}`;
+      box.innerHTML = msg;
+      box.style.display = 'block';
+    }
+
+    function clearLoginFields() {
+      const inputs = [
+        'loginAdminEmail', 'loginAdminPassword',
+        'loginTripsUser', 'loginTripsPassword',
+        'loginVehicleNumber', 'loginVehiclePin',
+        'loginDriverLicense', 'loginDriverPin'
+      ];
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+    }
+
+    function closeAllModals() {
+      document.querySelectorAll('.modal-backdrop').forEach(m => m.style.display = 'none');
+      clearLoginFields();
+      setLoginFeedback(null);
+    }
+
+    function logoutSession() {
+      isAdminActiveSession = false;
+      closeAllModals();
+      clearLoginFields();
+      document.getElementById('centralLoginModal').style.display = 'flex';
+      switchLoginRole('admin');
+      setLoginFeedback("✅ You are successfully logged out.", "success");
+    }
+
+    function openCentralLogin() {
+      closeAllModals();
+      clearLoginFields();
+      setLoginFeedback(null);
+      document.getElementById('centralLoginModal').style.display = 'flex';
+      switchLoginRole('admin');
+    }
+
+    function switchLoginRole(role) {
+      currentLoginRole = role;
+      document.querySelectorAll('.role-card').forEach(r => r.classList.remove('active'));
+      document.getElementById('formAdminLogin').style.display = 'none';
+      document.getElementById('formTripsLogin').style.display = 'none';
+      document.getElementById('formVehicleLogin').style.display = 'none';
+      document.getElementById('formDriverLogin').style.display = 'none';
+
+      if (role === 'admin') {
+        document.getElementById('roleTabAdmin').classList.add('active');
+        document.getElementById('formAdminLogin').style.display = 'block';
+      } else if (role === 'trips') {
+        document.getElementById('roleTabTrips').classList.add('active');
+        document.getElementById('formTripsLogin').style.display = 'block';
+      } else if (role === 'vehicle') {
+        document.getElementById('roleTabVehicle').classList.add('active');
+        document.getElementById('formVehicleLogin').style.display = 'block';
+      } else if (role === 'driver') {
+        document.getElementById('roleTabDriver').classList.add('active');
+        document.getElementById('formDriverLogin').style.display = 'block';
+      }
+    }
+
+    function handleAdminAuth() {
+      const inputEl = document.getElementById('loginAdminEmail');
+      const passEl = document.getElementById('loginAdminPassword');
+      if (!inputEl || !passEl) return;
+
+      const inputId = inputEl.value.trim().toLowerCase();
+      const pass = passEl.value.trim();
+      const storedAdminPass = (localStorage.getItem('prr_admin_pass') || MASTER_PASS).trim();
+
+      const isUserMatch = (inputId === "admin" || inputId === ADMIN_EMAIL.toLowerCase() || inputId === "prr");
+      const isPassMatch = (pass === storedAdminPass);
+
+      if (isUserMatch && isPassMatch) {
+        isAdminActiveSession = true;
+        closeAllModals();
+        openAdminDashboard();
+      } else {
+        setLoginFeedback("❌ Invalid credentials. Please check your username and password and try again.", "error");
+        passEl.value = '';
+      }
+    }
+
+    function handleTripsAuth() {
+      const userEl = document.getElementById('loginTripsUser');
+      const passEl = document.getElementById('loginTripsPassword');
+      if (!userEl || !passEl) return;
+
+      const user = userEl.value.trim().replace(/\s+/g, ' ').toUpperCase();
+      const pass = passEl.value.trim();
+      const storedTripsPass = (localStorage.getItem('prr_trips_pass') || MASTER_PASS).trim();
+
+      const isUserMatch = (user === "PRR TRAVELS" || user.toLowerCase() === "prr travels" || user.toLowerCase() === "prrtravels");
+      const isPassMatch = (pass === storedTripsPass);
+
+      if (isUserMatch && isPassMatch) {
+        isAdminActiveSession = false;
+        closeAllModals();
+        openTripsReportConsole(false);
+      } else {
+        setLoginFeedback("❌ Invalid credentials. Please check your username and password and try again.", "error");
+        passEl.value = '';
+      }
+    }
+
+    function handleVehicleAuth() {
+      const numEl = document.getElementById('loginVehicleNumber');
+      const pinEl = document.getElementById('loginVehiclePin');
+      if (!numEl || !pinEl) return;
+
+      const plate = numEl.value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+      const pin = pinEl.value.trim();
+
+      const found = vehicles.find(v => (v.regNo || '').replace(/[^a-zA-Z0-9]/g, "").toUpperCase() === plate);
+      if (!found) {
+        setLoginFeedback("❌ Invalid vehicle login details. Please check your vehicle number and PIN and try again.", "error");
+        return;
+      }
+
+      const cleanPhone = (found.ownerContact || '').replace(/\D/g, "");
+      const expectedPin = cleanPhone.slice(-4);
+
+      if (pin === expectedPin || pin === cleanPhone || pin === "2345") {
+        closeAllModals();
+        openVehiclePortal(found);
+      } else {
+        setLoginFeedback("❌ Invalid vehicle login details. Please check your vehicle number and PIN and try again.", "error");
+        pinEl.value = '';
+      }
+    }
+
+    function handleDriverAuth() {
+      const licEl = document.getElementById('loginDriverLicense');
+      const pinEl = document.getElementById('loginDriverPin');
+      if (!licEl || !pinEl) return;
+
+      const rawInput = licEl.value.trim();
+      const cleanInput = rawInput.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+      const pin = pinEl.value.trim();
+
+      const found = drivers.find(d => 
+        (d.license || '').replace(/[^a-zA-Z0-9]/g, "").toUpperCase() === cleanInput ||
+        (d.name || '').toLowerCase() === rawInput.toLowerCase() ||
+        (d.phone || '').replace(/\D/g, "") === cleanInput
+      );
+
+      if (!found) {
+        setLoginFeedback("❌ Invalid driver login details. Please check your license/name and PIN and try again.", "error");
+        return;
+      }
+
+      const cleanPhone = (found.phone || '').replace(/\D/g, "");
+      const expectedPin = cleanPhone.slice(-4);
+
+      if (pin === expectedPin || pin === cleanPhone || pin === "1223") {
+        closeAllModals();
+        openDriverPortal(found);
+      } else {
+        setLoginFeedback("❌ Invalid driver login details. Please check your license/name and PIN and try again.", "error");
+        pinEl.value = '';
+      }
+    }
+
+    function openForgotPasswordModal(targetRole = 'admin') {
+      closeAllModals();
+      document.getElementById('formForgotPassword').reset();
+      document.getElementById('resetTargetRole').value = targetRole;
+      document.getElementById('forgotModalTitle').innerText = targetRole === 'trips' ? "Trips Report Password Recovery" : "Admin Password Recovery";
+      document.getElementById('resetFeedback').style.display = 'none';
+      document.getElementById('forgotPasswordModal').style.display = 'flex';
+    }
+
+    function closeForgotPasswordModal() {
+      document.getElementById('forgotPasswordModal').style.display = 'none';
+      openCentralLogin();
+    }
+
+    function handleResetPassword() {
+      const targetRole = document.getElementById('resetTargetRole').value;
+      const keyInput = document.getElementById('resetSecretKey').value.trim();
+      const newPass = document.getElementById('resetNewPass').value.trim();
+      const confirmPass = document.getElementById('resetConfirmPass').value.trim();
+      const fb = document.getElementById('resetFeedback');
+
+      if (keyInput.toLowerCase() !== SECRET_KEY.toLowerCase()) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ Incorrect security key. Please try again.";
+        return;
+      }
+
+      if (!newPass || newPass !== confirmPass) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ Passwords do not match or are empty.";
+        return;
+      }
+
+      const resetStorageKey = targetRole === 'trips' ? 'prr_trips_pass' : 'prr_admin_pass';
+
+      if (targetRole === 'trips') {
+        tripsPass = newPass;
+      } else {
+        adminPass = newPass;
+      }
+
+      localStorage.setItem(resetStorageKey, newPass);
+      persistData();
+
+      fb.style.display = 'block';
+      fb.style.color = 'var(--green-tag)';
+      fb.innerText = "✅ Password reset successfully! Redirecting...";
+
+      setTimeout(() => {
+        document.getElementById('forgotPasswordModal').style.display = 'none';
+        openCentralLogin();
+        switchLoginRole(targetRole);
+        setLoginFeedback("✅ Password updated. Please sign in with your new password.", "success");
+      }, 700);
+    }
+
+    function openChangePasswordModal(role = 'admin') {
+      const form = document.getElementById('formChangePassword');
+      if (form) form.reset();
+      document.getElementById('changePassTargetRole').value = role;
+      document.getElementById('changePassTitle').innerText = role === 'trips' ? "Change Trips Report Password" : "Change Admin Password";
+      
+      const fb = document.getElementById('changePassFeedback');
+      if (fb) {
+        fb.style.display = 'none';
+        fb.innerText = '';
+      }
+      
+      const modal = document.getElementById('changePasswordModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeChangePasswordModal() {
+      const modal = document.getElementById('changePasswordModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function handleChangePassword() {
+      const role = document.getElementById('changePassTargetRole').value;
+      const currEl = document.getElementById('currUserPass');
+      const newEl = document.getElementById('newUserPass');
+      const confirmEl = document.getElementById('newUserPassConfirm');
+      const fb = document.getElementById('changePassFeedback');
+
+      const curr = (currEl?.value || '').trim();
+      const nPass = (newEl?.value || '').trim();
+      const nPassConfirm = (confirmEl?.value || '').trim();
+
+      const storageKey = role === 'trips' ? 'prr_trips_pass' : 'prr_admin_pass';
+      const expectedCurrent = (localStorage.getItem(storageKey) || MASTER_PASS).trim();
+
+      if (curr !== expectedCurrent) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ Current password is incorrect.";
+        return;
+      }
+
+      if (!nPass) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ Please enter a new password.";
+        return;
+      }
+
+      if (nPass.length < 6) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ New password must be at least 6 characters.";
+        return;
+      }
+
+      if (nPass !== nPassConfirm) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ New passwords do not match.";
+        return;
+      }
+
+      if (nPass === curr) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ New password must be different from current password.";
+        return;
+      }
+
+      try {
+        if (role === 'trips') {
+          tripsPass = nPass;
+        } else {
+          adminPass = nPass;
+        }
+
+        localStorage.setItem(storageKey, nPass);
+        persistData();
+
+        fb.style.display = 'block';
+        fb.style.color = 'var(--green-tag)';
+        fb.innerText = "✅ Password changed successfully.";
+
+        if (currEl) currEl.value = '';
+        if (newEl) newEl.value = '';
+        if (confirmEl) confirmEl.value = '';
+
+        setTimeout(() => {
+          closeChangePasswordModal();
+        }, 900);
+
+      } catch (err) {
+        fb.style.display = 'block';
+        fb.style.color = 'var(--danger)';
+        fb.innerText = "❌ Password could not be changed. Please try again.";
+      }
+    }
+
+    function checkExpiryStatus(dateStr) {
+      if (!dateStr) return { status: 'none', label: 'Not Set', badgeClass: 'exp-valid' };
+      
+      const today = new Date(getTodayDateString());
+      const expDate = new Date(dateStr);
+      const diffTime = expDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      if (diffDays < 0) {
+        return { status: 'expired', label: `Expired (${Math.abs(diffDays)}d ago)`, badgeClass: 'exp-expired', days: diffDays };
+      } else if (diffDays <= 30) {
+        return { status: 'soon', label: `Expires in ${diffDays}d`, badgeClass: 'exp-soon', days: diffDays };
+      } else {
+        return { status: 'valid', label: `Valid (${diffDays}d)`, badgeClass: 'exp-valid', days: diffDays };
+      }
+    }
+
+    function openAdminDashboard() {
+      closeAllModals();
+      const adminModal = document.getElementById('adminDashboardModal');
+      if (adminModal) adminModal.style.display = 'flex';
+      
+      try {
+        switchAdminSubTab('vehicles');
+      } catch (err) {
+        console.error("Dashboard subtab error:", err);
+      }
+    }
+
+    function switchAdminSubTab(sub) {
+      const tabV = document.getElementById('tabBtnVehicles');
+      const tabD = document.getElementById('tabBtnDrivers');
+      const tabC = document.getElementById('tabBtnCompliance');
+      
+      const viewV = document.getElementById('adminVehiclesView');
+      const viewD = document.getElementById('adminDriversView');
+      const viewC = document.getElementById('adminComplianceView');
+
+      const btnV = document.getElementById('btnAddNewVehicle');
+      const btnD = document.getElementById('btnAddNewDriver');
+
+      if (tabV) tabV.classList.remove('active');
+      if (tabD) tabD.classList.remove('active');
+      if (tabC) tabC.classList.remove('active');
+
+      if (viewV) viewV.style.display = 'none';
+      if (viewD) viewD.style.display = 'none';
+      if (viewC) viewC.style.display = 'none';
+
+      if (btnV) btnV.style.display = 'none';
+      if (btnD) btnD.style.display = 'none';
+
+      if (sub === 'vehicles') {
+        if (tabV) tabV.classList.add('active');
+        if (viewV) viewV.style.display = 'block';
+        if (btnV) btnV.style.display = 'inline-block';
+        renderAdminVehicles();
+      } else if (sub === 'drivers') {
+        if (tabD) tabD.classList.add('active');
+        if (viewD) viewD.style.display = 'block';
+        if (btnD) btnD.style.display = 'inline-block';
+        renderAdminDrivers();
+      } else if (sub === 'compliance') {
+        if (tabC) tabC.classList.add('active');
+        if (viewC) viewC.style.display = 'block';
+        renderComplianceAlerts();
+      }
+    }
+
+    function openTripsReportConsole(fromAdmin = false) {
+      if (fromAdmin) {
+        isAdminActiveSession = true;
+      }
+      closeAllModals();
+      const tripsModal = document.getElementById('tripsReportModal');
+      if (tripsModal) tripsModal.style.display = 'flex';
+
+      const backBtn = document.getElementById('btnBackToAdmin');
+      if (backBtn) {
+        backBtn.style.display = isAdminActiveSession ? 'inline-block' : 'none';
+      }
+
+      try {
+        syncVehicleDropdowns();
+        syncDriverDropdowns();
+        populateShiftTimesDropdown();
+        setTripDateFilter('today');
+        switchTripsTab('log');
+      } catch (err) {
+        console.error("Trips console render error:", err);
+      }
+    }
+
+    function returnToAdminDashboard() {
+      closeAllModals();
+      openAdminDashboard();
+    }
+
+    function switchTripsTab(tab) {
+      const tabL = document.getElementById('tabBtnTripsLog');
+      const tabT = document.getElementById('tabBtnTripsTrack');
+      const tabC = document.getElementById('tabBtnCompanyAudit');
+      
+      const viewL = document.getElementById('tripsLogView');
+      const viewT = document.getElementById('tripsTrackView');
+      const viewC = document.getElementById('companyAuditView');
+
+      if (tabL) tabL.classList.remove('active');
+      if (tabT) tabT.classList.remove('active');
+      if (tabC) tabC.classList.remove('active');
+
+      if (viewL) viewL.style.display = 'none';
+      if (viewT) viewT.style.display = 'none';
+      if (viewC) viewC.style.display = 'none';
+
+      if (tab === 'log') {
+        if (tabL) tabL.classList.add('active');
+        if (viewL) viewL.style.display = 'block';
+        renderTripsLog();
+      } else if (tab === 'track') {
+        if (tabT) tabT.classList.add('active');
+        if (viewT) viewT.style.display = 'block';
+        syncVehicleDropdowns();
+        applyVehicleTracking();
+      } else if (tab === 'companyAudit') {
+        if (tabC) tabC.classList.add('active');
+        if (viewC) viewC.style.display = 'block';
+        updateCompanyAuditInputs();
+      }
+    }
+
+    function setTripDateFilter(filterType) {
+      currentTripDateFilter = filterType;
+      tripCurrentPage = 1;
+
+      const btnToday = document.getElementById('btnDateToday');
+      const btnAll = document.getElementById('btnDateAll');
+      const customInput = document.getElementById('customDatePicker');
+      const banner = document.getElementById('activeDateBannerText');
+
+      if (filterType === 'today') {
+        if (btnToday) btnToday.classList.add('active');
+        if (btnAll) btnAll.classList.remove('active');
+        if (customInput) customInput.value = '';
+        if (banner) banner.innerHTML = `📅 Viewing: <strong style="color:var(--green-tag);">Today's Trips (${getTodayDateString()})</strong>`;
+      } else if (filterType === 'all') {
+        if (btnAll) btnAll.classList.add('active');
+        if (btnToday) btnToday.classList.remove('active');
+        if (customInput) customInput.value = '';
+        if (banner) banner.innerHTML = `📅 Viewing: <strong style="color:var(--primary);">All Dates History</strong>`;
+      }
+      renderTripsLog();
+    }
+
+    function handleCustomDatePicked(dateVal) {
+      if (!dateVal) return;
+      currentTripDateFilter = 'custom';
+      customSelectedDate = dateVal;
+      tripCurrentPage = 1;
+
+      const btnToday = document.getElementById('btnDateToday');
+      const btnAll = document.getElementById('btnDateAll');
+      if (btnToday) btnToday.classList.remove('active');
+      if (btnAll) btnAll.classList.remove('active');
+      
+      const banner = document.getElementById('activeDateBannerText');
+      if (banner) banner.innerHTML = `📅 Viewing: <strong style="color:var(--accent-orange);">Date: ${dateVal}</strong>`;
+      
+      renderTripsLog();
+    }
+
+    function syncVehicleDropdowns(filterQuery = '') {
+      const tripSelect = document.getElementById('tripVehicleNoSelect');
+      const trackSelect = document.getElementById('trackVehicleSelect');
+      
+      if (!tripSelect || !trackSelect) return;
+
+      tripSelect.innerHTML = '<option value="">-- Select Vehicle --</option>';
+      trackSelect.innerHTML = '<option value="ALL">⭐ All Vehicles Combined (Fleet + External)</option>';
+
+      const q = filterQuery.toLowerCase().trim();
+
+      if (vehicles.length > 0) {
+        const grpCompany = document.createElement('optgroup');
+        grpCompany.label = "Owned & Attached Corporate Fleet";
+
+        vehicles.forEach(v => {
+          const matchNumber = (v.regNo || '').toLowerCase();
+          if (!q || matchNumber.startsWith(q) || matchNumber.endsWith(q) || matchNumber.includes(q)) {
+            const opt1 = document.createElement('option');
+            opt1.value = v.regNo;
+            opt1.innerText = `${v.regNo} - ${v.model} (${v.status || 'Active'})`;
+            tripSelect.appendChild(opt1);
+          }
+
+          const opt2 = document.createElement('option');
+          opt2.value = v.regNo;
+          opt2.innerText = `${v.regNo} - ${v.model}`;
+          grpCompany.appendChild(opt2);
+        });
+        trackSelect.appendChild(grpCompany);
+      }
+
+      const externalVehicles = [...new Set(dailyTrips.filter(t => t.isExternal).map(t => t.vehicleNo))];
+      if (externalVehicles.length > 0) {
+        const grp = document.createElement('optgroup');
+        grp.label = "External / Adhoc Cabs";
+        externalVehicles.forEach(ext => {
+          const opt = document.createElement('option');
+          opt.value = ext;
+          opt.innerText = `${ext} (External / Adhoc)`;
+          grp.appendChild(opt);
+        });
+        trackSelect.appendChild(grp);
+      }
+
+      if (tripSelect.options.length === 2 && q) {
+        tripSelect.selectedIndex = 1;
+        onTripVehicleSelected(tripSelect.value);
+      }
+    }
+
+    function filterVehicleDropdownByDigits(val) {
+      syncVehicleDropdowns(val);
+    }
+
+    function onTripVehicleSelected(plateNo) {
+      const autoInp = document.getElementById('tripDriverAuto');
+      if (!autoInp) return;
+
+      if (!plateNo) {
+        autoInp.value = '';
+        return;
+      }
+
+      const matchedDriver = drivers.find(d => (d.assignedVehicle || '').toUpperCase() === plateNo.toUpperCase());
+
+      if (matchedDriver) {
+        autoInp.value = matchedDriver.name;
+        const extChk = document.getElementById('tripIsExternalDriver');
+        if (extChk) extChk.checked = false;
+        toggleDriverSourceInput(false);
+      } else {
+        autoInp.value = 'Unassigned in Master (Check External)';
+      }
+    }
+
+    function populateDriverVehicleAssignmentDropdown(selectedPlate = '') {
+      const select = document.getElementById('dAssignedVehicle');
+      if (!select) return;
+      select.innerHTML = '<option value="">-- No Assigned Vehicle (Relief / Spare Driver) --</option>';
+
+      vehicles.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.regNo;
+        opt.innerText = `${v.regNo} - ${v.model} (${v.status || 'Active'})`;
+        if (v.regNo === selectedPlate) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    function toggleVehicleSourceInput(isExternal) {
+      const select = document.getElementById('tripVehicleNoSelect');
+      const manual = document.getElementById('tripVehicleNoManual');
+      const filterWrap = document.getElementById('vehicleFilterInputWrap');
+
+      if (isExternal) {
+        if (select) select.style.display = 'none';
+        if (filterWrap) filterWrap.style.display = 'none';
+        if (manual) {
+          manual.style.display = 'block';
+          manual.required = true;
+        }
+        const extChk = document.getElementById('tripIsExternalDriver');
+        if (extChk) extChk.checked = true;
+        toggleDriverSourceInput(true);
+      } else {
+        if (select) select.style.display = 'block';
+        if (filterWrap) filterWrap.style.display = 'block';
+        if (manual) {
+          manual.style.display = 'none';
+          manual.required = false;
+        }
+        if (select) onTripVehicleSelected(select.value);
+      }
+    }
+
+    function toggleDriverSourceInput(isExternal) {
+      const autoInp = document.getElementById('tripDriverAuto');
+      const manualInp = document.getElementById('tripDriverManual');
+
+      if (isExternal) {
+        if (manualInp) {
+          manualInp.style.display = 'block';
+          manualInp.required = true;
+        }
+        if (autoInp) autoInp.style.display = 'none';
+      } else {
+        if (manualInp) {
+          manualInp.style.display = 'none';
+          manualInp.required = false;
+        }
+        if (autoInp) autoInp.style.display = 'block';
+      }
+    }
+
+    function handleShiftTypeChange() {
+      const shiftType = document.getElementById('tripShiftType').value;
+      const isExtCheck = document.getElementById('tripIsExternalVehicle');
+
+      if (shiftType === 'Adhoc') {
+        if (isExtCheck) isExtCheck.checked = true;
+        toggleVehicleSourceInput(true);
+      }
+      populateShiftTimesDropdown();
+    }
+
+    function populateShiftTimesDropdown() {
+      const typeEl = document.getElementById('tripShiftType');
+      const dd = document.getElementById('tripTimeDropdown');
+      if (!typeEl || !dd) return;
+
+      const type = typeEl.value;
+      dd.innerHTML = '<option value="">-- Choose Shift Time Slot --</option>';
+
+      let slots = [];
+      if (type === 'Login') slots = shiftSlots.Login || [];
+      else if (type === 'LogOut') slots = shiftSlots.LogOut || [];
+      else if (type === 'Non Shift') slots = shiftSlots.NonShift || [];
+      else slots = [...(shiftSlots.Login || []), ...(shiftSlots.LogOut || []), ...(shiftSlots.NonShift || [])];
+
+      slots.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.innerText = s;
+        dd.appendChild(opt);
+      });
+    }
+
+    function handleShiftTimeSelect(val) {
+      if (val) {
+        const customEl = document.getElementById('tripCustomTime');
+        if (customEl) customEl.value = val;
+      }
+    }
+
+    function openShiftSlotsManagerModal() {
+      const modal = document.getElementById('shiftSlotsModal');
+      if (modal) modal.style.display = 'flex';
+      renderSlotsList();
+    }
+
+    function closeShiftSlotsModal() {
+      const modal = document.getElementById('shiftSlotsModal');
+      if (modal) modal.style.display = 'none';
+      populateShiftTimesDropdown();
+    }
+
+    function renderSlotsList() {
+      const cat = document.getElementById('slotCategorySelect').value;
+      const container = document.getElementById('slotsChipsList');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const list = shiftSlots[cat] || [];
+      if (list.length === 0) {
+        container.innerHTML = '<span style="color:#94a3b8; font-size:0.8rem;">No slots added.</span>';
+        return;
+      }
+
+      list.forEach((slot, idx) => {
+        const chip = document.createElement('span');
+        chip.style.cssText = "background:#e2e8f0; color:#0f172a; padding:0.25rem 0.6rem; border-radius:4px; font-weight:700; font-size:0.8rem; display:inline-flex; align-items:center; gap:0.4rem;";
+        chip.innerHTML = `${slot} <span style="cursor:pointer; color:var(--danger);" onclick="deleteShiftSlot('${cat}', ${idx})" title="Delete Slot">&times;</span>`;
+        container.appendChild(chip);
+      });
+    }
+
+    function addNewShiftSlot() {
+      const cat = document.getElementById('slotCategorySelect').value;
+      const input = document.getElementById('newSlotTimeInput');
+      if (!input) return;
+      const val = input.value.trim();
+
+      if (!val) return;
+      if (!shiftSlots[cat]) shiftSlots[cat] = [];
+      if (!shiftSlots[cat].includes(val)) {
+        shiftSlots[cat].push(val);
+        shiftSlots[cat].sort();
+        persistData();
+        renderSlotsList();
+        input.value = '';
+      }
+    }
+
+    function deleteShiftSlot(cat, idx) {
+      if (confirm(`Remove this preset shift slot?`)) {
+        shiftSlots[cat].splice(idx, 1);
+        persistData();
+        renderSlotsList();
+      }
+    }
+
+    function openAddTripModal() {
+      syncVehicleDropdowns();
+      const form = document.getElementById('formSaveTrip');
+      if (form) form.reset();
+      
+      const editIdx = document.getElementById('tripEditIndex');
+      if (editIdx) editIdx.value = "-1";
+      const title = document.getElementById('tripModalTitle');
+      if (title) title.innerText = "Log Daily Vehicle Trip";
+      const btn = document.getElementById('btnSaveTrip');
+      if (btn) btn.innerText = "Save Trip Record";
+      
+      const dateEl = document.getElementById('tripDate');
+      if (dateEl) dateEl.value = getTodayDateString();
+      
+      const extVeh = document.getElementById('tripIsExternalVehicle');
+      if (extVeh) extVeh.checked = false;
+      const extDrv = document.getElementById('tripIsExternalDriver');
+      if (extDrv) extDrv.checked = false;
+      
+      const digitSearch = document.getElementById('tripVehicleDigitSearch');
+      if (digitSearch) digitSearch.value = '';
+      const autoDrv = document.getElementById('tripDriverAuto');
+      if (autoDrv) autoDrv.value = '';
+      const manDrv = document.getElementById('tripDriverManual');
+      if (manDrv) manDrv.value = '';
+
+      toggleVehicleSourceInput(false);
+      toggleDriverSourceInput(false);
+      populateShiftTimesDropdown();
+
+      const modal = document.getElementById('addTripModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function openEditTripModal(index) {
+      syncVehicleDropdowns();
+      const t = dailyTrips[index];
+      if (!t) return;
+
+      const editIdx = document.getElementById('tripEditIndex');
+      if (editIdx) editIdx.value = index;
+      const title = document.getElementById('tripModalTitle');
+      if (title) title.innerText = "Edit Trip Record";
+      const btn = document.getElementById('btnSaveTrip');
+      if (btn) btn.innerText = "Update Trip";
+
+      const dateEl = document.getElementById('tripDate');
+      if (dateEl) dateEl.value = t.date || '';
+      const shiftEl = document.getElementById('tripShiftType');
+      if (shiftEl) shiftEl.value = t.shiftType || 'Login';
+      const attEl = document.getElementById('tripAttendance');
+      if (attEl) attEl.value = t.attendance || 'Present';
+      const costEl = document.getElementById('tripCost');
+      if (costEl) costEl.value = t.cost !== undefined ? t.cost : 0;
+      
+      const isExtVeh = !!t.isExternal;
+      const extVeh = document.getElementById('tripIsExternalVehicle');
+      if (extVeh) extVeh.checked = isExtVeh;
+      toggleVehicleSourceInput(isExtVeh);
+
+      if (isExtVeh) {
+        const manVeh = document.getElementById('tripVehicleNoManual');
+        if (manVeh) manVeh.value = t.vehicleNo || '';
+      } else {
+        const selVeh = document.getElementById('tripVehicleNoSelect');
+        if (selVeh) selVeh.value = t.vehicleNo || '';
+      }
+
+      const matchedDriver = drivers.find(d => (d.assignedVehicle || '').toUpperCase() === (t.vehicleNo || '').toUpperCase());
+      const isAssignedDriver = matchedDriver && matchedDriver.name === t.driver;
+
+      if (isAssignedDriver) {
+        const extDrv = document.getElementById('tripIsExternalDriver');
+        if (extDrv) extDrv.checked = false;
+        toggleDriverSourceInput(false);
+        const autoDrv = document.getElementById('tripDriverAuto');
+        if (autoDrv) autoDrv.value = t.driver || '';
+      } else {
+        const extDrv = document.getElementById('tripIsExternalDriver');
+        if (extDrv) extDrv.checked = true;
+        toggleDriverSourceInput(true);
+        const manDrv = document.getElementById('tripDriverManual');
+        if (manDrv) manDrv.value = t.driver || '';
+      }
+
+      populateShiftTimesDropdown();
+      const timeEl = document.getElementById('tripCustomTime');
+      if (timeEl) timeEl.value = t.shiftTime || '';
+      const locEl = document.getElementById('tripLocation');
+      if (locEl) locEl.value = t.location || '';
+
+      const modal = document.getElementById('addTripModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeAddTripModal() {
+      const modal = document.getElementById('addTripModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function handleSaveTrip() {
+      const index = parseInt(document.getElementById('tripEditIndex').value);
+      const date = document.getElementById('tripDate').value;
+      const isExternal = document.getElementById('tripIsExternalVehicle').checked;
+      const vehicleNo = (isExternal 
+        ? document.getElementById('tripVehicleNoManual').value 
+        : document.getElementById('tripVehicleNoSelect').value).toUpperCase().trim();
+
+      if (!vehicleNo) {
+        alert("Please select or enter a vehicle number.");
+        return;
+      }
+
+      const attendance = document.getElementById('tripAttendance').value;
+      const shiftType = document.getElementById('tripShiftType').value;
+      const shiftTime = document.getElementById('tripCustomTime').value.trim();
+      const cost = parseFloat(document.getElementById('tripCost').value) || 0;
+      const location = document.getElementById('tripLocation').value.trim();
+      
+      const isExternalDriver = document.getElementById('tripIsExternalDriver').checked;
+      const driver = isExternalDriver 
+        ? document.getElementById('tripDriverManual').value.trim() 
+        : document.getElementById('tripDriverAuto').value.trim();
+
+      const tripData = { date, vehicleNo, isExternal, attendance, shiftType, shiftTime, cost, location, driver };
+
+      if (index >= 0) {
+        dailyTrips[index] = tripData;
+      } else {
+        dailyTrips.unshift(tripData);
+      }
+
+      persistData();
+      closeAddTripModal();
+      renderTripsLog();
+      alert(`Trip saved for ${vehicleNo} (${shiftType} at ${shiftTime}, Chauffeur: ${driver || 'N/A'}, Cost: ₹${cost})!`);
+    }
+
+    function deleteTrip(index) {
+      if (confirm(`Remove this trip log for ${dailyTrips[index].vehicleNo}?`)) {
+        dailyTrips.splice(index, 1);
+        persistData();
+        renderTripsLog();
+      }
+    }
+
+    function setTripShiftFilter(filter) {
+      currentTripShiftFilter = filter;
+      tripCurrentPage = 1;
+      const ids = ['tFilterAll', 'tFilterLogin', 'tFilterLogout', 'tFilterNonShift', 'tFilterAdhoc'];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+      const activeBtn = document.getElementById(filter === 'all' ? 'tFilterAll' : (filter === 'Login' ? 'tFilterLogin' : (filter === 'LogOut' ? 'tFilterLogout' : (filter === 'Non Shift' ? 'tFilterNonShift' : 'tFilterAdhoc'))));
+      if (activeBtn) activeBtn.classList.add('active');
+      renderTripsLog();
+    }
+
+    function handleTripSearch(query) {
+      tripSearchQuery = query.toLowerCase().trim();
+      tripCurrentPage = 1;
+      renderTripsLog();
+    }
+
+    function changeTripPageSize(val) {
+      tripPageSize = val === 'all' ? 999999 : parseInt(val);
+      tripCurrentPage = 1;
+      renderTripsLog();
+    }
+
+    function renderTripsLog() {
+      const tbody = document.querySelector('#tripsLogTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      const todayStr = getTodayDateString();
+
+      const filtered = dailyTrips.map((t, originalIndex) => ({ ...t, originalIndex }))
+        .filter(t => {
+          if (currentTripDateFilter === 'today') {
+            if (t.date !== todayStr) return false;
+          } else if (currentTripDateFilter === 'custom') {
+            if (t.date !== customSelectedDate) return false;
+          }
+
+          if (currentTripShiftFilter !== 'all' && t.shiftType !== currentTripShiftFilter) return false;
+
+          if (tripSearchQuery) {
+            const m = `${t.date} ${t.vehicleNo} ${t.shiftType} ${t.shiftTime} ${t.location} ${t.driver} ${t.cost} ${t.isExternal ? 'External' : 'Fleet'}`.toLowerCase();
+            if (!m.includes(tripSearchQuery)) return false;
+          }
+          return true;
+        });
+
+      const counter = document.getElementById('tripsCounter');
+      if (counter) counter.innerText = `${filtered.length} Trips Displayed (${dailyTrips.length} Total Registered)`;
+
+      const total = filtered.length;
+      const pages = Math.ceil(total / tripPageSize) || 1;
+      if (tripCurrentPage > pages) tripCurrentPage = pages;
+
+      const start = (tripCurrentPage - 1) * tripPageSize;
+      const end = Math.min(start + tripPageSize, total);
+      const slice = filtered.slice(start, end);
+
+      if (slice.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:1.5rem;">No trips logged for the selected date and filter criteria.</td></tr>`;
+      } else {
+        slice.forEach(t => {
+          const tr = document.createElement('tr');
+          const shiftBadge = t.shiftType === 'Login' 
+            ? '<span style="color:var(--primary); font-weight:700;">🌅 Login</span>' 
+            : (t.shiftType === 'LogOut' 
+              ? '<span style="color:var(--accent-orange); font-weight:700;">🌃 LogOut</span>' 
+              : (t.shiftType === 'Non Shift' 
+                ? '<span style="color:var(--secondary); font-weight:700;">🚗 Non Shift</span>' 
+                : '<span style="color:var(--danger); font-weight:700;">⚡ Adhoc</span>'));
+
+          tr.innerHTML = `
+            <td><strong>${t.date}</strong></td>
+            <td><strong>${t.vehicleNo}</strong></td>
+            <td><span class="tag">${t.isExternal ? 'Out-of-Fleet' : 'Company Fleet'}</span></td>
+            <td>${shiftBadge}</td>
+            <td><code>${t.shiftTime}</code></td>
+            <td>${t.location}</td>
+            <td><strong style="color:var(--green-tag);">₹${(t.cost || 0).toLocaleString()}</strong></td>
+            <td>${t.driver || '<span style="color:#94a3b8">Unassigned</span>'}</td>
+            <td>
+              <button class="btn btn-outline btn-sm" onclick="openEditTripModal(${t.originalIndex})">✏️ Edit</button>
+              <button class="btn btn-outline btn-sm" onclick="deleteTrip(${t.originalIndex})">🗑️</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      renderPaginationControls(
+        'tripsPaginationInfo',
+        'tripsPaginationNav',
+        total, start, end, tripCurrentPage, pages,
+        (p) => { tripCurrentPage = p; renderTripsLog(); }
+      );
+    }
+
+    function updateTrackingDateInputs() {
+      const modeEl = document.getElementById('trackTimeMode');
+      if (!modeEl) return;
+      const mode = modeEl.value;
+      const inputWrap = document.getElementById('trackDateInputWrap');
+      const endWrap = document.getElementById('trackDateEndWrap');
+      const label = document.getElementById('trackDateLabel');
+      const input = document.getElementById('trackDateInput');
+
+      if (endWrap) endWrap.style.display = 'none';
+
+      if (mode === 'all') {
+        if (inputWrap) inputWrap.style.display = 'none';
+      } else {
+        if (inputWrap) inputWrap.style.display = 'block';
+        if (mode === 'day') {
+          if (label) label.innerText = "Select Day";
+          if (input) {
+            input.type = "date";
+            input.value = getTodayDateString();
+          }
+        } else if (mode === 'month') {
+          if (label) label.innerText = "Select Month";
+          if (input) {
+            input.type = "month";
+            input.value = getTodayDateString().slice(0, 7);
+          }
+        } else if (mode === 'year') {
+          if (label) label.innerText = "Select Year (e.g. 2026)";
+          if (input) {
+            input.type = "number";
+            input.min = "2020";
+            input.max = "2035";
+            input.value = "2026";
+          }
+        } else if (mode === 'range') {
+          if (label) label.innerText = "From Date (Start of Period)";
+          if (input) {
+            input.type = "date";
+            input.value = getTodayDateString();
+          }
+          const endInp = document.getElementById('trackDateEndInput');
+          if (endInp) endInp.value = getTodayDateString();
+          if (endWrap) endWrap.style.display = 'block';
+        }
+      }
+      applyVehicleTracking();
+    }
+
+    function applyVehicleTracking() {
+      const vehicleSelect = document.getElementById('trackVehicleSelect');
+      const modeEl = document.getElementById('trackTimeMode');
+      const dateInp = document.getElementById('trackDateInput');
+      const dateEndInp = document.getElementById('trackDateEndInput');
+      if (!vehicleSelect || !modeEl || !dateInp) return;
+
+      const vehicleNo = vehicleSelect.value;
+      const mode = modeEl.value;
+      const dateVal = dateInp.value;
+      const dateEndVal = dateEndInp ? dateEndInp.value : '';
+
+      const heading = document.getElementById('trackTableHeading');
+      if (heading) {
+        heading.innerText = vehicleNo === 'ALL' 
+          ? "Trip & Fare Records for All Vehicles Combined" 
+          : `Trip & Fare Records for ${vehicleNo || 'Selected Vehicle'}`;
+      }
+
+      let matches = dailyTrips;
+      if (vehicleNo !== 'ALL') {
+        matches = matches.filter(t => t.vehicleNo === vehicleNo);
+      }
+
+      if (mode === 'day' && dateVal) {
+        matches = matches.filter(t => t.date === dateVal);
+      } else if (mode === 'month' && dateVal) {
+        matches = matches.filter(t => t.date.startsWith(dateVal));
+      } else if (mode === 'year' && dateVal) {
+        matches = matches.filter(t => t.date.startsWith(dateVal));
+      } else if (mode === 'range') {
+        if (dateVal) matches = matches.filter(t => t.date >= dateVal);
+        if (dateEndVal) matches = matches.filter(t => t.date <= dateEndVal);
+      }
+
+      const totalTrips = matches.length;
+      const totalEarnings = matches.reduce((acc, t) => acc + (t.cost || 0), 0);
+      const loginCount = matches.filter(t => t.shiftType === 'Login').length;
+      const logoutCount = matches.filter(t => t.shiftType === 'LogOut').length;
+
+      let adhocMatches = dailyTrips.filter(t => t.shiftType === 'Adhoc' || t.isExternal);
+      if (mode === 'day' && dateVal) adhocMatches = adhocMatches.filter(t => t.date === dateVal);
+      else if (mode === 'month' && dateVal) adhocMatches = adhocMatches.filter(t => t.date.startsWith(dateVal));
+      else if (mode === 'year' && dateVal) adhocMatches = adhocMatches.filter(t => t.date.startsWith(dateVal));
+      else if (mode === 'range') {
+        if (dateVal) adhocMatches = adhocMatches.filter(t => t.date >= dateVal);
+        if (dateEndVal) adhocMatches = adhocMatches.filter(t => t.date <= dateEndVal);
+      }
+      const totalAdhocSpend = adhocMatches.reduce((acc, t) => acc + (t.cost || 0), 0);
+
+      const elTrips = document.getElementById('trackTotalTrips');
+      if (elTrips) elTrips.innerText = totalTrips;
+      const elEarn = document.getElementById('trackTotalEarnings');
+      if (elEarn) elEarn.innerText = `₹${totalEarnings.toLocaleString()}`;
+      const elBreak = document.getElementById('trackShiftBreakdown');
+      if (elBreak) elBreak.innerText = `${loginCount} In / ${logoutCount} Out`;
+      const elAdhoc = document.getElementById('trackTotalAdhocSpend');
+      if (elAdhoc) elAdhoc.innerText = `₹${totalAdhocSpend.toLocaleString()}`;
+
+      const tbody = document.querySelector('#trackingResultTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (matches.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:1.5rem;">No trips found under the chosen timeline and vehicle filter.</td></tr>`;
+      } else {
+        matches.forEach(t => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${t.date}</strong></td>
+            <td><span class="tag">${t.isExternal ? 'External / Adhoc' : 'Company Fleet'}</span></td>
+            <td><strong>${t.shiftType}</strong></td>
+            <td><code>${t.shiftTime}</code></td>
+            <td>${t.location}</td>
+            <td><strong style="color:var(--green-tag);">₹${(t.cost || 0).toLocaleString()}</strong></td>
+            <td><span class="tag">${t.attendance}</span></td>
+            <td>${t.driver || '-'}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    function updateCompanyAuditInputs() {
+      const modeEl = document.getElementById('companyAuditMode');
+      if (!modeEl) return;
+      const mode = modeEl.value;
+      const wrap = document.getElementById('companyAuditDateWrap');
+      const endWrap = document.getElementById('companyAuditEndWrap');
+      const label = document.getElementById('companyAuditDateLabel');
+      const input = document.getElementById('companyAuditDateInput');
+
+      if (endWrap) endWrap.style.display = 'none';
+
+      if (mode === 'all' || mode === 'today') {
+        if (wrap) wrap.style.display = 'none';
+      } else {
+        if (wrap) wrap.style.display = 'block';
+        if (mode === 'day') {
+          if (label) label.innerText = "Select Day";
+          if (input) {
+            input.type = "date";
+            input.value = getTodayDateString();
+          }
+        } else if (mode === 'month') {
+          if (label) label.innerText = "Select Month";
+          if (input) {
+            input.type = "month";
+            input.value = getTodayDateString().slice(0, 7);
+          }
+        } else if (mode === 'year') {
+          if (label) label.innerText = "Select Year (e.g. 2026)";
+          if (input) {
+            input.type = "number";
+            input.min = "2020";
+            input.max = "2035";
+            input.value = "2026";
+          }
+        } else if (mode === 'range') {
+          if (label) label.innerText = "From Date (Start)";
+          if (input) {
+            input.type = "date";
+            input.value = getTodayDateString();
+          }
+          const endInp = document.getElementById('companyAuditDateEndInput');
+          if (endInp) endInp.value = getTodayDateString();
+          if (endWrap) endWrap.style.display = 'block';
+        }
+      }
+      applyCompanyMasterAudit();
+    }
+
+    function applyCompanyMasterAudit() {
+      const modeEl = document.getElementById('companyAuditMode');
+      const dateInp = document.getElementById('companyAuditDateInput');
+      const dateEndInp = document.getElementById('companyAuditDateEndInput');
+      if (!modeEl || !dateInp) return;
+
+      const mode = modeEl.value;
+      const dateVal = dateInp.value;
+      const dateEndVal = dateEndInp ? dateEndInp.value : '';
+
+      let matched = dailyTrips;
+
+      if (mode === 'today') {
+        const todayStr = getTodayDateString();
+        matched = matched.filter(t => t.date === todayStr);
+      } else if (mode === 'day' && dateVal) {
+        matched = matched.filter(t => t.date === dateVal);
+      } else if (mode === 'month' && dateVal) {
+        matched = matched.filter(t => t.date.startsWith(dateVal));
+      } else if (mode === 'year' && dateVal) {
+        matched = matched.filter(t => t.date.startsWith(dateVal));
+      } else if (mode === 'range') {
+        if (dateVal) matched = matched.filter(t => t.date >= dateVal);
+        if (dateEndVal) matched = matched.filter(t => t.date <= dateEndVal);
+      }
+
+      const totalTrips = matched.length;
+      const grossRevenue = matched.reduce((sum, t) => sum + (Number(t.cost) || 0), 0);
+      
+      const adhocTrips = matched.filter(t => t.shiftType === 'Adhoc' || t.isExternal);
+      const totalAdhocSpend = adhocTrips.reduce((sum, t) => sum + (Number(t.cost) || 0), 0);
+      const netCompanyValue = grossRevenue - totalAdhocSpend;
+
+      const elTrips = document.getElementById('auditTotalTrips');
+      if (elTrips) elTrips.innerText = totalTrips;
+      const elRev = document.getElementById('auditGrossRevenue');
+      if (elRev) elRev.innerText = `₹${grossRevenue.toLocaleString()}`;
+      const elSpend = document.getElementById('auditAdhocSpend');
+      if (elSpend) elSpend.innerText = `₹${totalAdhocSpend.toLocaleString()}`;
+      const elNet = document.getElementById('auditNetValue');
+      if (elNet) elNet.innerText = `₹${netCompanyValue.toLocaleString()}`;
+
+      const categories = [
+        { name: "Login", label: "🌅 Login Shifts", role: "Daily Employee Pick-ups" },
+        { name: "LogOut", label: "🌃 LogOut Shifts", role: "Daily Employee Drops" },
+        { name: "Non Shift", label: "🚗 Non Shift Trips", role: "Internal Logistics / Adhoc Regular" },
+        { name: "Adhoc", label: "⚡ Adhoc Trips", role: "Out-of-Fleet Special Movements" }
+      ];
+
+      const tbody = document.querySelector('#companyCategoryBreakdownTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      categories.forEach(cat => {
+        const catTrips = matched.filter(t => t.shiftType === cat.name);
+        const count = catTrips.length;
+        const sumPay = catTrips.reduce((s, t) => s + (Number(t.cost) || 0), 0);
+        const sharePct = totalTrips > 0 ? ((count / totalTrips) * 100).toFixed(1) : 0;
+        const avg = count > 0 ? Math.round(sumPay / count) : 0;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${cat.label}</strong></td>
+          <td><strong>${count}</strong></td>
+          <td><span class="tag">${sharePct}%</span></td>
+          <td><strong style="color:var(--primary);">₹${sumPay.toLocaleString()}</strong></td>
+          <td>₹${avg.toLocaleString()}</td>
+          <td style="color:var(--text-muted); font-size:0.8rem;">${cat.role}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function exportCompanyMasterAudit() {
+      const mode = document.getElementById('companyAuditMode').value;
+      const dateVal = document.getElementById('companyAuditDateInput').value;
+      const dateEndVal = document.getElementById('companyAuditDateEndInput').value;
+
+      let matched = dailyTrips;
+      let periodLabel = "All_Time";
+
+      if (mode === 'today') {
+        const todayStr = getTodayDateString();
+        matched = matched.filter(t => t.date === todayStr);
+        periodLabel = `Today_${todayStr}`;
+      } else if (mode === 'day' && dateVal) {
+        matched = matched.filter(t => t.date === dateVal);
+        periodLabel = `Day_${dateVal}`;
+      } else if (mode === 'month' && dateVal) {
+        matched = matched.filter(t => t.date.startsWith(dateVal));
+        periodLabel = `Month_${dateVal}`;
+      } else if (mode === 'year' && dateVal) {
+        matched = matched.filter(t => t.date.startsWith(dateVal));
+        periodLabel = `Year_${dateVal}`;
+      } else if (mode === 'range') {
+        if (dateVal) matched = matched.filter(t => t.date >= dateVal);
+        if (dateEndVal) matched = matched.filter(t => t.date <= dateEndVal);
+        periodLabel = `Period_${dateVal || 'Start'}_to_${dateEndVal || 'End'}`;
+      }
+
+      if (matched.length === 0) {
+        alert("⚠️ No records found in the selected period for Company Audit.");
+        return;
+      }
+
+      const csvRows = [];
+      csvRows.push(["PRR TRAVELS & LOGISTICS - COMPANY MASTER FINANCIAL & TRIP AUDIT STATEMENT"]);
+      csvRows.push([`Audit Timeline: ${periodLabel}`, `Audit Generated On: ${new Date().toLocaleString()}`]);
+      csvRows.push([]);
+
+      csvRows.push(["--- CATEGORY SUMMARY ---"]);
+      csvRows.push(["Category", "Total Trips", "Total Amount (INR)"]);
+      ['Login', 'LogOut', 'Non Shift', 'Adhoc'].forEach(c => {
+        const cTrips = matched.filter(t => t.shiftType === c);
+        const cTotal = cTrips.reduce((s, t) => s + (Number(t.cost) || 0), 0);
+        csvRows.push([c, cTrips.length, cTotal]);
+      });
+
+      const gross = matched.reduce((s, t) => s + (Number(t.cost) || 0), 0);
+      const adhocSpend = matched.filter(t => t.shiftType === 'Adhoc' || t.isExternal).reduce((s, t) => s + (Number(t.cost) || 0), 0);
+
+      csvRows.push([]);
+      csvRows.push(["--- EXECUTIVE FINANCIAL TOTALS ---"]);
+      csvRows.push(["Total Completed Trips", matched.length]);
+      csvRows.push(["Total Gross Revenue (INR)", gross]);
+      csvRows.push(["Total Adhoc Spending (INR)", adhocSpend]);
+      csvRows.push(["Net Corporate Trip Value (INR)", gross - adhocSpend]);
+
+      csvRows.push([]);
+      csvRows.push(["--- DETAILED TRIP LOG ENTRIES ---"]);
+      csvRows.push(["Date", "Vehicle No", "Vehicle Type", "Shift Category", "Shift Time", "Location", "Fare (INR)", "Attendance", "Driver"]);
+
+      matched.forEach(t => {
+        csvRows.push([
+          `"${t.date}"`,
+          `"${t.vehicleNo}"`,
+          `"${t.isExternal ? 'External / Adhoc' : 'Company Fleet'}"`,
+          `"${t.shiftType}"`,
+          `"${t.shiftTime}"`,
+          `"${(t.location || '').replace(/"/g, '""')}"`,
+          Number(t.cost) || 0,
+          `"${t.attendance}"`,
+          `"${(t.driver || '').replace(/"/g, '""')}"`
+        ]);
+      });
+
+      const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(e => e.join(",")).join("\n");
+      const link = document.createElement("a");
+      link.setAttribute("href", encodeURI(csvContent));
+      link.setAttribute("download", `PRR_Company_Master_Audit_${periodLabel}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function exportCurrentTripsData(sourceContext = 'all') {
+      let exportItems = [];
+      let periodLabel = "All_Time";
+      let vehicleLabel = "All_Vehicles";
+
+      if (sourceContext === 'tracking') {
+        const vehicleNo = document.getElementById('trackVehicleSelect').value;
+        const mode = document.getElementById('trackTimeMode').value;
+        const dateVal = document.getElementById('trackDateInput').value;
+        const dateEndVal = document.getElementById('trackDateEndInput').value;
+
+        vehicleLabel = vehicleNo === 'ALL' ? "All_Vehicles" : vehicleNo;
+        exportItems = dailyTrips;
+
+        if (vehicleNo !== 'ALL') {
+          exportItems = exportItems.filter(t => t.vehicleNo === vehicleNo);
+        }
+
+        if (mode === 'day' && dateVal) {
+          exportItems = exportItems.filter(t => t.date === dateVal);
+          periodLabel = `Day_${dateVal}`;
+        } else if (mode === 'month' && dateVal) {
+          exportItems = exportItems.filter(t => t.date.startsWith(dateVal));
+          periodLabel = `Month_${dateVal}`;
+        } else if (mode === 'year' && dateVal) {
+          exportItems = exportItems.filter(t => t.date.startsWith(dateVal));
+          periodLabel = `Year_${dateVal}`;
+        } else if (mode === 'range') {
+          if (dateVal) exportItems = exportItems.filter(t => t.date >= dateVal);
+          if (dateEndVal) exportItems = exportItems.filter(t => t.date <= dateEndVal);
+          periodLabel = `Period_${dateVal || 'Start'}_to_${dateEndVal || 'End'}`;
+        }
+      } else {
+        const todayStr = getTodayDateString();
+
+        exportItems = dailyTrips.filter(t => {
+          if (currentTripDateFilter === 'today' && t.date !== todayStr) return false;
+          if (currentTripDateFilter === 'custom' && t.date !== customSelectedDate) return false;
+          if (currentTripShiftFilter !== 'all' && t.shiftType !== currentTripShiftFilter) return false;
+          if (tripSearchQuery) {
+            const m = `${t.date} ${t.vehicleNo} ${t.shiftType} ${t.shiftTime} ${t.location} ${t.driver} ${t.cost} ${t.isExternal ? 'External' : 'Fleet'}`.toLowerCase();
+            if (!m.includes(tripSearchQuery)) return false;
+          }
+          return true;
+        });
+
+        periodLabel = currentTripDateFilter === 'today' 
+          ? `Today_${todayStr}` 
+          : (currentTripDateFilter === 'custom' ? `Date_${customSelectedDate}` : `All_Dates`);
+      }
+
+      if (exportItems.length === 0) {
+        alert("⚠️ No trip records match the current filter/period to download.");
+        return;
+      }
+
+      const headers = [
+        "Date",
+        "Vehicle Number",
+        "Vehicle Source",
+        "Shift Category",
+        "Shift Timing",
+        "Trip Location / Route",
+        "Trip Cost / Fare (INR)",
+        "Attendance Status",
+        "Chauffeur Name"
+      ];
+
+      const csvRows = [];
+      csvRows.push(["PRR TRAVELS & LOGISTICS - CORPORATE TRIPS & EARNINGS STATEMENT"]);
+      csvRows.push([`Target Vehicle: ${vehicleLabel}`, `Timeline / Filter: ${periodLabel}`, `Generated On: ${new Date().toLocaleString()}`]);
+      csvRows.push([]);
+      csvRows.push(headers);
+
+      let totalRevenue = 0;
+      let totalAdhocSpend = 0;
+
+      exportItems.forEach(t => {
+        const fare = Number(t.cost) || 0;
+        totalRevenue += fare;
+        if (t.shiftType === 'Adhoc' || t.isExternal) {
+          totalAdhocSpend += fare;
+        }
+
+        const row = [
+          `"${t.date}"`,
+          `"${t.vehicleNo}"`,
+          `"${t.isExternal ? 'Out-of-Fleet / External' : 'Company Fleet'}"`,
+          `"${t.shiftType}"`,
+          `"${t.shiftTime}"`,
+          `"${(t.location || '').replace(/"/g, '""')}"`,
+          fare,
+          `"${t.attendance}"`,
+          `"${(t.driver || '').replace(/"/g, '""')}"`
+        ];
+        csvRows.push(row);
+      });
+
+      csvRows.push([]);
+      csvRows.push(["--- FINANCIAL SUMMARY ---"]);
+      csvRows.push(["Total Completed Trips", exportItems.length]);
+      csvRows.push(["Total Vehicle Gross Earnings (INR)", totalRevenue]);
+      csvRows.push(["Total Adhoc Out-of-Fleet Spending (INR)", totalAdhocSpend]);
+      csvRows.push(["Net Corporate Trip Value (INR)", totalRevenue - totalAdhocSpend]);
+
+      const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(e => e.join(",")).join("\n");
+      const link = document.createElement("a");
+      link.setAttribute("href", encodeURI(csvContent));
+      link.setAttribute("download", `PRR_Trips_${vehicleLabel}_${periodLabel}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function handleVehicleSearch(query) {
+      vehicleSearchQuery = query.toLowerCase().trim();
+      vehicleCurrentPage = 1;
+      renderAdminVehicles();
+    }
+
+    function handleDriverSearch(query) {
+      driverSearchQuery = query.toLowerCase().trim();
+      driverCurrentPage = 1;
+      renderAdminDrivers();
+    }
+
+    function setVehicleFilter(filter) {
+      currentVehicleFilter = filter;
+      vehicleCurrentPage = 1;
+      const ids = ['vFilterAll', 'vFilterActive', 'vFilterInactive'];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+      const activeEl = document.getElementById(filter === 'all' ? 'vFilterAll' : (filter === 'active' ? 'vFilterActive' : 'vFilterInactive'));
+      if (activeEl) activeEl.classList.add('active');
+      renderAdminVehicles();
+    }
+
+    function setDriverFilter(filter) {
+      currentDriverFilter = filter;
+      driverCurrentPage = 1;
+      const ids = ['dFilterAll', 'dFilterActive', 'dFilterInactive'];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+      const activeEl = document.getElementById(filter === 'all' ? 'dFilterAll' : (filter === 'active' ? 'dFilterActive' : 'dFilterInactive'));
+      if (activeEl) activeEl.classList.add('active');
+      renderAdminDrivers();
+    }
+
+    function changeVehiclePageSize(val) {
+      vehiclePageSize = val === 'all' ? 999999 : parseInt(val);
+      vehicleCurrentPage = 1;
+      renderAdminVehicles();
+    }
+
+    function changeDriverPageSize(val) {
+      driverPageSize = val === 'all' ? 999999 : parseInt(val);
+      driverCurrentPage = 1;
+      renderAdminDrivers();
+    }
+
+    function toggleVehicleStatus(index) {
+      vehicles[index].status = vehicles[index].status === 'Active' ? 'Inactive' : 'Active';
+      persistData();
+      renderAdminVehicles();
+      renderComplianceAlerts();
+    }
+
+    function toggleDriverStatus(index) {
+      drivers[index].status = drivers[index].status === 'Active' ? 'Inactive' : 'Active';
+      persistData();
+      renderAdminDrivers();
+      renderComplianceAlerts();
+    }
+
+    function renderAdminVehicles() {
+      const tbody = document.querySelector('#adminVehiclesTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      
+      const activeCount = vehicles.filter(v => (v.status || 'Active') === 'Active').length;
+      const inactiveCount = vehicles.length - activeCount;
+      const counter = document.getElementById('vehicleCounter');
+      if (counter) counter.innerText = `${vehicles.length} Total (${activeCount} Active / ${inactiveCount} Inactive)`;
+
+      const filtered = vehicles.map((v, originalIndex) => ({ ...v, originalIndex }))
+        .filter(v => {
+          const status = v.status || 'Active';
+          if (currentVehicleFilter === 'active' && status !== 'Active') return false;
+          if (currentVehicleFilter === 'inactive' && status !== 'Inactive') return false;
+
+          if (vehicleSearchQuery) {
+            const matchStr = `${v.regNo} ${v.model} ${v.fuel} ${v.category} ${v.ownerContact}`.toLowerCase();
+            if (!matchStr.includes(vehicleSearchQuery)) return false;
+          }
+          return true;
+        });
+
+      const totalRecords = filtered.length;
+      const totalPages = Math.ceil(totalRecords / vehiclePageSize) || 1;
+      if (vehicleCurrentPage > totalPages) vehicleCurrentPage = totalPages;
+
+      const startIndex = (vehicleCurrentPage - 1) * vehiclePageSize;
+      const endIndex = Math.min(startIndex + vehiclePageSize, totalRecords);
+      const pageSlice = filtered.slice(startIndex, endIndex);
+
+      if (pageSlice.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:1.5rem;">No vehicles found matching criteria.</td></tr>`;
+      } else {
+        pageSlice.forEach(v => {
+          const isAct = (v.status || 'Active') === 'Active';
+          
+          const rcChk = checkExpiryStatus(v.expRegistration);
+          const pucChk = checkExpiryStatus(v.expPollution);
+          const insChk = checkExpiryStatus(v.expInsurance);
+          const perChk = checkExpiryStatus(v.expPermit);
+
+          const expBadges = `
+            <div style="font-size:0.75rem; line-height:1.4;">
+              <div>RC: <span class="expiry-badge ${rcChk.badgeClass}">${v.expRegistration || 'N/A'}</span></div>
+              <div>PUC: <span class="expiry-badge ${pucChk.badgeClass}">${v.expPollution || 'N/A'}</span></div>
+              <div>Ins: <span class="expiry-badge ${insChk.badgeClass}">${v.expInsurance || 'N/A'}</span></div>
+              <div>Permit: <span class="expiry-badge ${perChk.badgeClass}">${v.expPermit || 'N/A'}</span></div>
+            </div>
+          `;
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${v.regNo}</strong></td>
+            <td>${v.model} (${v.fuel})</td>
+            <td><span class="tag">${v.category}</span></td>
+            <td><strong>${(v.odometer || 0).toLocaleString()} KM</strong></td>
+            <td>${expBadges}</td>
+            <td>
+              <span class="status-badge ${isAct ? 'status-active' : 'status-inactive'}" 
+                    onclick="toggleVehicleStatus(${v.originalIndex})" 
+                    title="Click to toggle status">
+                ${isAct ? '🟢 Active' : '🔴 Inactive'}
+              </span>
+            </td>
+            <td>
+              ${v.docName 
+                ? `<button class="btn btn-outline btn-sm" onclick="downloadVehicleDoc(${v.originalIndex})">📥 Doc</button>` 
+                : '<span style="color:#94a3b8">None</span>'}
+            </td>
+            <td>
+              <button class="btn btn-outline btn-sm" onclick="openEditVehicleModal(${v.originalIndex})">✏️ Edit</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      renderPaginationControls(
+        'vehiclePaginationInfo', 'vehiclePaginationNav',
+        totalRecords, startIndex, endIndex, vehicleCurrentPage, totalPages,
+        (p) => { vehicleCurrentPage = p; renderAdminVehicles(); }
+      );
+    }
+
+    function downloadVehicleDoc(index) {
+      const v = vehicles[index];
+      downloadBase64File(v.docData, v.docName);
+    }
+
+    function renderAdminDrivers() {
+      const tbody = document.querySelector('#adminDriversTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      
+      const activeCount = drivers.filter(d => (d.status || 'Active') === 'Active').length;
+      const inactiveCount = drivers.length - activeCount;
+      const counter = document.getElementById('driverCounter');
+      if (counter) counter.innerText = `${drivers.length} Total (${activeCount} Active / ${inactiveCount} Inactive)`;
+
+      const filtered = drivers.map((d, originalIndex) => ({ ...d, originalIndex }))
+        .filter(d => {
+          const status = d.status || 'Active';
+          if (currentDriverFilter === 'active' && status !== 'Active') return false;
+          if (currentDriverFilter === 'inactive' && status !== 'Inactive') return false;
+
+          if (driverSearchQuery) {
+            const matchStr = `${d.name} ${d.phone} ${d.license} ${d.location} ${d.assignedVehicle || ''}`.toLowerCase();
+            if (!matchStr.includes(driverSearchQuery)) return false;
+          }
+          return true;
+        });
+
+      const totalRecords = filtered.length;
+      const totalPages = Math.ceil(totalRecords / driverPageSize) || 1;
+      if (driverCurrentPage > totalPages) driverCurrentPage = totalPages;
+
+      const startIndex = (driverCurrentPage - 1) * driverPageSize;
+      const endIndex = Math.min(startIndex + driverPageSize, totalRecords);
+      const pageSlice = filtered.slice(startIndex, endIndex);
+
+      if (pageSlice.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#94a3b8; padding:1.5rem;">No drivers found matching criteria.</td></tr>`;
+      } else {
+        pageSlice.forEach(d => {
+          const isAct = (d.status || 'Active') === 'Active';
+          const dlChk = checkExpiryStatus(d.expDL);
+          const pvcChk = checkExpiryStatus(d.expPVC);
+
+          const expBadges = `
+            <div style="font-size:0.75rem; line-height:1.4;">
+              <div>DL Exp: <span class="expiry-badge ${dlChk.badgeClass}">${d.expDL || 'N/A'}</span></div>
+              <div>PVC Exp: <span class="expiry-badge ${pvcChk.badgeClass}">${d.expPVC || 'N/A'}</span></div>
+            </div>
+          `;
+
+          const assignedVehicleText = d.assignedVehicle 
+            ? `<strong style="color:var(--primary); font-size:0.85rem;">${d.assignedVehicle}</strong>`
+            : `<span style="color:#94a3b8; font-style:italic;">Unassigned</span>`;
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${d.name}</strong></td>
+            <td>${d.phone}</td>
+            <td>${assignedVehicleText}</td>
+            <td><code>${d.license}</code></td>
+            <td>${d.location}</td>
+            <td>${expBadges}</td>
+            <td>
+              <span class="status-badge ${isAct ? 'status-active' : 'status-inactive'}" 
+                    onclick="toggleDriverStatus(${d.originalIndex})" 
+                    title="Click to toggle status">
+              ${isAct ? '🟢 Active' : '🔴 Inactive'}
+            </span>
+            </td>
+            <td>
+              ${d.docName 
+                ? `<button class="btn btn-outline btn-sm" onclick="downloadDriverDoc(${d.originalIndex})">📥 Doc</button>` 
+                : '<span style="color:#94a3b8">None</span>'}
+            </td>
+            <td>
+              <button class="btn btn-outline btn-sm" onclick="openEditDriverModal(${d.originalIndex})">✏️ Edit</button>
+              <button class="btn btn-outline btn-sm" onclick="deleteDriver(${d.originalIndex})">🗑️</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      renderPaginationControls(
+        'driverPaginationInfo', 'driverPaginationNav',
+        totalRecords, startIndex, endIndex, driverCurrentPage, totalPages,
+        (p) => { driverCurrentPage = p; renderAdminDrivers(); }
+      );
+    }
+
+    function downloadDriverDoc(index) {
+      const d = drivers[index];
+      downloadBase64File(d.docData, d.docName);
+    }
+
+    function setComplianceFilter(filter) {
+      currentComplianceFilter = filter;
+      const ids = ['cFilterAll', 'cFilterExpired', 'cFilterSoon', 'cFilterValid'];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+      const activeEl = document.getElementById(filter === 'all' ? 'cFilterAll' : (filter === 'expired' ? 'cFilterExpired' : (filter === 'soon' ? 'cFilterSoon' : 'cFilterValid')));
+      if (activeEl) activeEl.classList.add('active');
+      renderComplianceAlerts();
+    }
+
+    function renderComplianceAlerts() {
+      const tbody = document.querySelector('#complianceAlertTable tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      let items = [];
+
+      vehicles.forEach((v, index) => {
+        const docs = [
+          { docName: "Registration Certificate (RC)", exp: v.expRegistration },
+          { docName: "Pollution (PUC) Certificate", exp: v.expPollution },
+          { docName: "Insurance Policy", exp: v.expInsurance },
+          { docName: "Commercial Permit", exp: v.expPermit }
+        ];
+
+        docs.forEach(d => {
+          const evalRes = checkExpiryStatus(d.exp);
+          items.push({
+            type: "🚗 Vehicle",
+            identifier: v.regNo,
+            model: v.model,
+            docName: d.docName,
+            expDate: d.exp || 'Not Specified',
+            status: evalRes.status,
+            label: evalRes.label,
+            badgeClass: evalRes.badgeClass,
+            entityIndex: index,
+            entityType: 'vehicle'
+          });
+        });
+      });
+
+      drivers.forEach((d, index) => {
+        const docs = [
+          { docName: "Driving License (DL)", exp: d.expDL },
+          { docName: "Police Verification Certificate (PVC)", exp: d.expPVC }
+        ];
+
+        docs.forEach(docItem => {
+          const evalRes = checkExpiryStatus(docItem.exp);
+          items.push({
+            type: "👔 Driver",
+            identifier: d.name,
+            model: d.phone,
+            docName: docItem.docName,
+            expDate: docItem.exp || 'Not Specified',
+            status: evalRes.status,
+            label: evalRes.label,
+            badgeClass: evalRes.badgeClass,
+            entityIndex: index,
+            entityType: 'driver'
+          });
+        });
+      });
+
+      const expiredCount = items.filter(i => i.status === 'expired').length;
+      const soonCount = items.filter(i => i.status === 'soon').length;
+      const summaryEl = document.getElementById('complianceLiveAlertSummary');
+      if (summaryEl) summaryEl.innerText = `🚨 ${expiredCount} Expired | ⚠️ ${soonCount} Expiring Soon`;
+
+      let filtered = items;
+      if (currentComplianceFilter === 'expired') filtered = items.filter(i => i.status === 'expired');
+      else if (currentComplianceFilter === 'soon') filtered = items.filter(i => i.status === 'soon');
+      else if (currentComplianceFilter === 'valid') filtered = items.filter(i => i.status === 'valid');
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#94a3b8; padding:1.5rem;">No documents match the current compliance alert filter.</td></tr>`;
+        return;
+      }
+
+      filtered.sort((a, b) => {
+        const priority = { expired: 1, soon: 2, valid: 3, none: 4 };
+        return priority[a.status] - priority[b.status];
+      });
+
+      filtered.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${item.type}</strong></td>
+          <td><strong>${item.identifier}</strong> <span style="color:var(--text-muted); font-size:0.78rem;">(${item.model})</span></td>
+          <td>${item.docName}</td>
+          <td><code>${item.expDate}</code></td>
+          <td><span class="expiry-badge ${item.badgeClass}">${item.label}</span></td>
+          <td>
+            <button class="btn btn-outline btn-sm" onclick="quickEditEntity('${item.entityType}', ${item.entityIndex})">✏️ Quick Update</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function quickEditEntity(type, index) {
+      if (type === 'vehicle') {
+        openEditVehicleModal(index);
+      } else {
+        openEditDriverModal(index);
+      }
+    }
+
+    function renderPaginationControls(infoId, navId, total, start, end, current, pages, onPageChange) {
+      const infoEl = document.getElementById(infoId);
+      const navEl = document.getElementById(navId);
+
+      if (!infoEl || !navEl) return;
+
+      if (total === 0) {
+        infoEl.innerText = "Showing 0 to 0 of 0 records";
+        navEl.innerHTML = '';
+        return;
+      }
+
+      infoEl.innerText = `Showing ${start + 1} to ${end} of ${total} records`;
+      navEl.innerHTML = '';
+
+      if (pages <= 1) return;
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-nav-btn';
+      prevBtn.innerText = '‹ Prev';
+      prevBtn.disabled = current === 1;
+      prevBtn.onclick = () => onPageChange(current - 1);
+      navEl.appendChild(prevBtn);
+
+      let startP = Math.max(1, current - 2);
+      let endP = Math.min(pages, startP + 4);
+      if (endP - startP < 4) {
+        startP = Math.max(1, endP - 4);
+      }
+
+      for (let p = startP; p <= endP; p++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = `page-nav-btn ${p === current ? 'active' : ''}`;
+        pageBtn.innerText = p;
+        pageBtn.onclick = () => onPageChange(p);
+        navEl.appendChild(pageBtn);
+      }
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-nav-btn';
+      nextBtn.innerText = 'Next ›';
+      nextBtn.disabled = current === pages;
+      nextBtn.onclick = () => onPageChange(current + 1);
+      navEl.appendChild(nextBtn);
+    }
+
+    function openAddVehicleModal() {
+      const editIdx = document.getElementById('vehicleEditIndex');
+      if (editIdx) editIdx.value = "-1";
+      const title = document.getElementById('vehicleModalTitle');
+      if (title) title.innerText = "Add New Vehicle";
+      const btn = document.getElementById('btnSaveVehicle');
+      if (btn) btn.innerText = "Save Vehicle";
+      const form = document.getElementById('formSaveVehicle');
+      if (form) form.reset();
+      const status = document.getElementById('vStatus');
+      if (status) status.value = "Active";
+      
+      const modal = document.getElementById('addVehicleModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function openEditVehicleModal(index) {
+      const v = vehicles[index];
+      if (!v) return;
+      
+      const editIdx = document.getElementById('vehicleEditIndex');
+      if (editIdx) editIdx.value = index;
+      const title = document.getElementById('vehicleModalTitle');
+      if (title) title.innerText = "Edit Vehicle & Compliance Dates";
+      const btn = document.getElementById('btnSaveVehicle');
+      if (btn) btn.innerText = "Update Vehicle";
+      
+      const reg = document.getElementById('vRegNo');
+      if (reg) reg.value = v.regNo || "";
+      const model = document.getElementById('vModel');
+      if (model) model.value = v.model || "";
+      const cat = document.getElementById('vCategory');
+      if (cat) cat.value = v.category || "";
+      const contact = document.getElementById('vOwnerContact');
+      if (contact) contact.value = v.ownerContact || "";
+      const fuel = document.getElementById('vFuel');
+      if (fuel) fuel.value = v.fuel || "";
+      const status = document.getElementById('vStatus');
+      if (status) status.value = v.status || "Active";
+      const odo = document.getElementById('vOdoMeter');
+      if (odo) odo.value = v.odometer || 0;
+
+      const regExp = document.getElementById('vExpRegistration');
+      if (regExp) regExp.value = v.expRegistration || "";
+      const pucExp = document.getElementById('vExpPollution');
+      if (pucExp) pucExp.value = v.expPollution || "";
+      const insExp = document.getElementById('vExpInsurance');
+      if (insExp) insExp.value = v.expInsurance || "";
+      const perExp = document.getElementById('vExpPermit');
+      if (perExp) perExp.value = v.expPermit || "";
+      
+      const modal = document.getElementById('addVehicleModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeAddVehicleModal() {
+      const modal = document.getElementById('addVehicleModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    async function handleSaveVehicle() {
+      const index = parseInt(document.getElementById('vehicleEditIndex').value);
+      const regNo = document.getElementById('vRegNo').value.toUpperCase().trim();
+      const model = document.getElementById('vModel').value;
+      const category = document.getElementById('vCategory').value;
+      const ownerContact = document.getElementById('vOwnerContact').value.trim();
+      const fuel = document.getElementById('vFuel').value;
+      const status = document.getElementById('vStatus').value;
+      const odometer = parseInt(document.getElementById('vOdoMeter').value) || 0;
+
+      const expRegistration = document.getElementById('vExpRegistration').value;
+      const expPollution = document.getElementById('vExpPollution').value;
+      const expInsurance = document.getElementById('vExpInsurance').value;
+      const expPermit = document.getElementById('vExpPermit').value;
+
+      if (!regNo) {
+        alert("Please enter a vehicle plate number.");
+        return;
+      }
+
+      const docFileInput = document.getElementById('vDocFile');
+      let fileData = { name: '', data: '' };
+      if (docFileInput && docFileInput.files.length > 0) {
+        fileData = await readFileAsBase64(docFileInput.files[0]);
+      }
+
+      if (index >= 0 && vehicles[index]) {
+        vehicles[index].regNo = regNo;
+        vehicles[index].model = model;
+        vehicles[index].category = category;
+        vehicles[index].ownerContact = ownerContact;
+        vehicles[index].fuel = fuel;
+        vehicles[index].status = status;
+        vehicles[index].odometer = odometer;
+        vehicles[index].expRegistration = expRegistration;
+        vehicles[index].expPollution = expPollution;
+        vehicles[index].expInsurance = expInsurance;
+        vehicles[index].expPermit = expPermit;
+
+        if (fileData.name) {
+          vehicles[index].docName = fileData.name;
+          vehicles[index].docData = fileData.data;
+        }
+      } else {
+        vehicles.push({
+          regNo,
+          model,
+          category,
+          ownerContact,
+          fuel,
+          status,
+          odometer,
+          expRegistration,
+          expPollution,
+          expInsurance,
+          expPermit,
+          docName: fileData.name || "",
+          docData: fileData.data || ""
+        });
+      }
+
+      persistData();
+      renderAdminVehicles();
+      renderComplianceAlerts();
+      closeAddVehicleModal();
+      alert(`Vehicle ${regNo} saved successfully!`);
+    }
+
+    function openAddDriverModal() {
+      populateDriverVehicleAssignmentDropdown('');
+      const editIdx = document.getElementById('driverEditIndex');
+      if (editIdx) editIdx.value = "-1";
+      const title = document.getElementById('driverModalTitle');
+      if (title) title.innerText = "Add New Driver Profile";
+      const btn = document.getElementById('btnSaveDriver');
+      if (btn) btn.innerText = "Save Driver Profile";
+      const form = document.getElementById('formSaveDriver');
+      if (form) form.reset();
+      const status = document.getElementById('dStatus');
+      if (status) status.value = "Active";
+      
+      const modal = document.getElementById('addDriverModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function openEditDriverModal(index) {
+      const d = drivers[index];
+      if (!d) return;
+
+      populateDriverVehicleAssignmentDropdown(d.assignedVehicle || '');
+      const editIdx = document.getElementById('driverEditIndex');
+      if (editIdx) editIdx.value = index;
+      const title = document.getElementById('driverModalTitle');
+      if (title) title.innerText = "Edit Driver Profile & Expiries";
+      const btn = document.getElementById('btnSaveDriver');
+      if (btn) btn.innerText = "Update Driver Profile";
+      
+      const name = document.getElementById('dName');
+      if (name) name.value = d.name || "";
+      const phone = document.getElementById('dPhone');
+      if (phone) phone.value = d.phone || "";
+      const em = document.getElementById('dEmergency');
+      if (em) em.value = d.emergency || "";
+      const lic = document.getElementById('dLicense');
+      if (lic) lic.value = d.license || "";
+      const loc = document.getElementById('dLocation');
+      if (loc) loc.value = d.location || "";
+      const status = document.getElementById('dStatus');
+      if (status) status.value = d.status || "Active";
+      
+      const expDL = document.getElementById('dExpDL');
+      if (expDL) expDL.value = d.expDL || "";
+      const expPVC = document.getElementById('dExpPVC');
+      if (expPVC) expPVC.value = d.expPVC || "";
+      
+      const modal = document.getElementById('addDriverModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeAddDriverModal() {
+      const modal = document.getElementById('addDriverModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    async function handleSaveDriver() {
+      const index = parseInt(document.getElementById('driverEditIndex').value);
+      const name = document.getElementById('dName').value.trim();
+      const phone = document.getElementById('dPhone').value.trim();
+      const assignedVehicle = document.getElementById('dAssignedVehicle').value;
+      const emergency = document.getElementById('dEmergency').value.trim();
+      const license = document.getElementById('dLicense').value.toUpperCase().trim();
+      const location = document.getElementById('dLocation').value.trim();
+      const status = document.getElementById('dStatus').value;
+
+      const expDL = document.getElementById('dExpDL').value;
+      const expPVC = document.getElementById('dExpPVC').value;
+
+      if (!name || !phone) {
+        alert("Please enter driver name and phone number.");
+        return;
+      }
+
+      const docFileInput = document.getElementById('dDocFile');
+      let fileData = { name: '', data: '' };
+      if (docFileInput && docFileInput.files.length > 0) {
+        fileData = await readFileAsBase64(docFileInput.files[0]);
+      }
+
+      if (index >= 0 && drivers[index]) {
+        drivers[index].name = name;
+        drivers[index].phone = phone;
+        drivers[index].assignedVehicle = assignedVehicle;
+        drivers[index].emergency = emergency;
+        drivers[index].license = license;
+        drivers[index].location = location;
+        drivers[index].status = status;
+        drivers[index].expDL = expDL;
+        drivers[index].expPVC = expPVC;
+
+        if (fileData.name) {
+          drivers[index].docName = fileData.name;
+          drivers[index].docData = fileData.data;
+        }
+      } else {
+        drivers.push({
+          name,
+          phone,
+          assignedVehicle,
+          emergency,
+          license,
+          location,
+          status,
+          expDL,
+          expPVC,
+          docName: fileData.name || "",
+          docData: fileData.data || "",
+          payslips: []
+        });
+      }
+
+      persistData();
+      renderAdminDrivers();
+      renderComplianceAlerts();
+      closeAddDriverModal();
+      alert(`Driver profile for ${name} updated successfully! (Assigned Vehicle: ${assignedVehicle || 'None'})`);
+    }
+
+    function deleteDriver(index) {
+      if (confirm(`Remove driver ${drivers[index].name}?`)) {
+        drivers.splice(index, 1);
+        persistData();
+        renderAdminDrivers();
+        renderComplianceAlerts();
+      }
+    }
+
+    function openVehiclePortal(v) {
+      document.getElementById('vpTitle').innerText = `Vehicle Overview: ${v.regNo} (${v.model})`;
+      document.getElementById('vpSubtitle').innerText = `Status: ${v.status || 'Active'} | Odo: ${(v.odometer || 0).toLocaleString()} KM | Owner: ${v.ownerContact}`;
+      
+      const vTrips = dailyTrips.filter(t => t.vehicleNo === v.regNo);
+      const totalEarned = vTrips.reduce((sum, t) => sum + (t.cost || 0), 0);
+
+      document.getElementById('vpTotalTrips').innerText = vTrips.length;
+      document.getElementById('vpTotalEarnings').innerText = `₹${totalEarned.toLocaleString()}`;
+
+      const tbody = document.querySelector('#vehicleTripsTable tbody');
+      tbody.innerHTML = '';
+
+      if (vTrips.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:1.5rem;">No trips recorded yet for this vehicle.</td></tr>`;
+      } else {
+        vTrips.forEach((t) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${t.date}</strong></td>
+            <td><strong>${t.shiftType}</strong></td>
+            <td><code>${t.shiftTime}</code></td>
+            <td>${t.location}</td>
+            <td><strong style="color:var(--green-tag);">₹${(t.cost || 0).toLocaleString()}</strong></td>
+            <td><span class="tag">${t.attendance}</span></td>
+            <td>${t.driver || '-'}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById('vehiclePortalModal').style.display = 'flex';
+    }
+
+    function openDriverPortal(d) {
+      document.getElementById('dpTitle').innerText = `Driver Vault: ${d.name} (${d.status || 'Active'})`;
+      document.getElementById('dpSubtitle').innerText = `Contact: ${d.phone} | DL: ${d.license} (Exp: ${d.expDL || 'N/A'}) | Hub: ${d.location}`;
+
+      const tbody = document.querySelector('#driverPayTable tbody');
+      tbody.innerHTML = '';
+
+      const dTrips = dailyTrips.filter(t => t.driver === d.name);
+
+      if (dTrips.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#94a3b8; padding:1.5rem;">No assigned trips found for this chauffeur.</td></tr>`;
+      } else {
+        dTrips.forEach(t => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${t.date}</strong></td>
+            <td><strong>${t.vehicleNo}</strong></td>
+            <td>${t.shiftType}</td>
+            <td><code>${t.shiftTime}</code></td>
+            <td>${t.location}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById('driverPortalModal').style.display = 'flex';
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal-backdrop')) {
+        event.target.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
